@@ -16,6 +16,8 @@ import {
     IconTicket,
 } from "justd-icons";
 import React, { useState, useEffect, useRef } from "react";
+import NavbarComponent from "../components/Navbar";
+import FooterComponent from "../components/Footer";
 
 function Layout() {
     const images = [
@@ -95,26 +97,7 @@ function Layout() {
 
     return (
         <>
-            <nav className="fixed z-50 w-full backdrop-blur shadow-sm">
-                <div className="container flex justify-between items-center mx-auto">
-                    <div className="py-5">
-                        <h5 className="text-2xl text-white">
-                            Sanggar Nusantara
-                        </h5>
-                    </div>
-                    <div className="border-b-2 py-5 border-red-500 px-14">
-                        <ul className="flex gap-6 items-center text-white">
-                            {/* <li className="font-semibold relative after:content-[''] after:absolute after:size-1 after:bg-red-500 after:rounded-full after:left-1/2 after:-translate-x-1/2 after:-bottom-1">
-                                Home
-                            </li> */}
-                            <li className="font-semibold">Home</li>
-                            <li>About</li>
-                            <li>Gallery</li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
+            <NavbarComponent />
             {/*  */}
             <header
                 className={`h-screen bg-cover bg-center relative z-10 transition-opacity duration-500 ${
@@ -624,43 +607,7 @@ function Layout() {
                 </small>
             </section>
 
-            <footer className="pt-16 pb-5 text-center text-gray-100">
-                <span className="size-10 bg-red-500 inline-flex items-center justify-center rounded-full">
-                    <IconHome1Fill className="size-5" />
-                </span>
-
-                <h3 className="text-3xl font-semibold mb-5 mt-2">
-                    Sanggar Nusantara
-                </h3>
-                <ul className="flex justify-center gap-6 items-center text-white mb-5">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Gallery</li>
-                </ul>
-
-                <div className="inline-flex gap-3 my-3">
-                    <span
-                        className="bg-[#f09433] flex items-center justify-center size-10 rounded-full"
-                        style={{
-                            background:
-                                "-moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-                            background:
-                                "-webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
-                            background:
-                                "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
-                        }}
-                    >
-                        <IconBrandInstagram className="size-6" />
-                    </span>
-                    <span className="bg-gradient-to-t from-[#015ddd] to-[#19aeff] flex items-center justify-center size-10 rounded-full">
-                        <IconBrandFacebook className="size-6" />
-                    </span>
-                </div>
-
-                <hr className="w-5/6 border-t border-gray-700 mx-auto mt-5" />
-
-                <p className="mt-7">Copyright &copy; by ALOPE</p>
-            </footer>
+            <FooterComponent />
         </>
     );
 }

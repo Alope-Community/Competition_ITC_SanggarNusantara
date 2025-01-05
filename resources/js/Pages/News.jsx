@@ -1,9 +1,13 @@
 import React from "react";
+import NavbarComponent from "../components/Navbar";
+import FooterComponent from "../components/Footer";
 
 export default function News() {
     return (
         <>
-            <main className="mt-10">
+            <NavbarComponent />
+
+            <main className="pt-36">
                 <div className="container mx-auto grid grid-cols-3 gap-10">
                     {/* post */}
                     <div className="overflow-hidden order-1 col-span-2">
@@ -327,6 +331,8 @@ export default function News() {
                     </div>
                 </div>
             </main>
+
+            <FooterComponent />
         </>
     );
 }
