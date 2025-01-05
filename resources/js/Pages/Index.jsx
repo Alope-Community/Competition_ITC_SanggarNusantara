@@ -1,4 +1,10 @@
-import { IconLocationFill } from "justd-icons";
+import {
+    IconCalendar2Fill,
+    IconCalendarFill,
+    IconChevronRight,
+    IconLocationFill,
+    IconPlayFill,
+} from "justd-icons";
 import React, { useState, useEffect, useRef } from "react";
 
 function Layout() {
@@ -158,8 +164,8 @@ function Layout() {
                 </div>
             </header>
 
-            <main className="text-gray-100 py-20 container mx-auto">
-                <section className="text-center mt-28">
+            <main className="text-gray-100 py-20">
+                <section className="text-center mt-28 container mx-auto">
                     <div>
                         <h3 className="text-4xl font-bold">Ragam Budaya</h3>
                         <p className="text-gray-300">
@@ -261,6 +267,81 @@ function Layout() {
                                     adipisicing elit. Nisi vitae enim totam in
                                     itaque, quasi adipisci rerum error!
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/*  */}
+                <section className="mt-36 bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-screen z-10 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/80 after:to-black/40 after:-z-10">
+                    <div className="container mx-auto h-full flex items-center">
+                        <div className="grid grid-cols-3 items-center h-full">
+                            <div>
+                                <h3 className="text-5xl font-semibold">
+                                    Mari Kenali Keragaman <br /> Budaya
+                                    Nusantara
+                                </h3>
+                                <p className="text-gray-300 mt-5 mb-7">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Dolore quam aperiam eum
+                                    consectetur amet at sit deserunt,
+                                    praesentium nisi asperiores, laudantium
+                                    exercitationem? Dicta quasi ducimus
+                                    voluptatibus itaque facilis eius laborum!
+                                </p>
+                                <a
+                                    href=""
+                                    className="group inline-flex items-center gap-2 hover:bg-red-500 rounded-full pr-4 duration-200"
+                                >
+                                    <span className="size-8 group-hover:rounded-r-none rounded-full bg-red-500 flex items-center justify-center duration-200">
+                                        <IconPlayFill />
+                                    </span>
+                                    Lihat Video
+                                </a>
+                            </div>
+                            <div className="col-span-2 text-right relative h-full">
+                                <div className="absolute bottom-10 right-0">
+                                    <h5 className="text-3xl font-semibold text-gray-200">
+                                        Indonesia di Mata Dunia
+                                    </h5>
+                                    <div className="mt-10">
+                                        <div className="py-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border">
+                                            <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
+                                                <IconCalendarFill />
+                                                28 Oktober 2025
+                                            </p>
+                                            <h5 className="text-xl font-semibold">
+                                                Borobudur Menjadi Tempat Wisata
+                                                Terbaik UNESCO
+                                            </h5>
+                                        </div>
+                                        <div className="py-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border">
+                                            <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
+                                                <IconCalendarFill />
+                                                28 Oktober 2025
+                                            </p>
+                                            <h5 className="text-xl font-semibold">
+                                                Bahasa Indonesia Resmi jadi
+                                                Bahasa PBB
+                                            </h5>
+                                        </div>
+                                        <div className="pt-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border pb-12">
+                                            <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
+                                                <IconCalendarFill />
+                                                28 Oktober 2025
+                                            </p>
+                                            <h5 className="text-xl font-semibold">
+                                                Bali Jadi Tempat FIFA Word Cup
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <a
+                                        href=""
+                                        className="group inline-flex items-center gap-2 px-5 py-3 rounded bg-red-500 hover:bg-red-400"
+                                    >
+                                        Lihat Semua Berita
+                                        <IconChevronRight className="group-hover:block hidden size-5" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
