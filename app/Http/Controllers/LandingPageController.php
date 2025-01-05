@@ -10,4 +10,7 @@ class LandingPageController extends Controller
     public function index(){
         return inertia('Index');
     }
+    public function news(){
+        return inertia('News');
+    }
 }

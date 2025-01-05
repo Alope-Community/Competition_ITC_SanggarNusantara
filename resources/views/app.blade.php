@@ -10,7 +10,7 @@
   </head>
   <body class="bg-black">
 
-      @inertia
+    @inertia
       
   </body>
 </html>

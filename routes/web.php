@@ -7,4 +7,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('/', LandingPageController::class);
+Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/news', [LandingPageController::class, 'news']);
