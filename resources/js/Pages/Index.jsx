@@ -1,3 +1,4 @@
+import { IconLocationFill } from "justd-icons";
 import React, { useState, useEffect, useRef } from "react";
 
 function Layout() {
@@ -156,6 +157,115 @@ function Layout() {
                     ))}
                 </div>
             </header>
+
+            <main className="text-gray-100 py-20 container mx-auto">
+                <section className="text-center mt-28">
+                    <div>
+                        <h3 className="text-4xl font-bold">Ragam Budaya</h3>
+                        <p className="text-gray-300">
+                            Indonesia dengan Keanekaragaman Budayanya
+                        </p>
+                    </div>
+                    <div className="grid gap-7 grid-cols-4 mt-10">
+                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                            <div className="flex justify-between items-center text-left">
+                                <p className="font-semibold italic text-xl">
+                                    Tari Bali
+                                </p>
+                                <p className="flex text-xs items-center gap-1 text-gray-200">
+                                    <IconLocationFill className="size-3" />
+                                    Kuningan, Jawa Barat
+                                </p>
+                            </div>
+                            <div className="text-left">
+                                <h5 className="text-5xl font-bold text-red-500">
+                                    100+
+                                </h5>
+                                <p className="text-xl">
+                                    Ragam Tari Tradisional
+                                </p>
+                                <p className="text-sm mt-3 text-gray-300">
+                                    Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Nisi vitae enim totam in
+                                    itaque, quasi adipisci rerum error!
+                                </p>
+                            </div>
+                        </div>
+                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                            <div className="flex justify-between items-center text-left">
+                                <p className="font-semibold italic text-xl">
+                                    Tari Bali
+                                </p>
+                                <p className="flex text-xs items-center gap-1 text-gray-200">
+                                    <IconLocationFill className="size-3" />
+                                    Kuningan, Jawa Barat
+                                </p>
+                            </div>
+                            <div className="text-left">
+                                <h5 className="text-5xl font-bold text-red-500">
+                                    100+
+                                </h5>
+                                <p className="text-xl">
+                                    Ragam Tari Tradisional
+                                </p>
+                                <p className="text-sm mt-3 text-gray-300">
+                                    Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Nisi vitae enim totam in
+                                    itaque, quasi adipisci rerum error!
+                                </p>
+                            </div>
+                        </div>
+                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                            <div className="flex justify-between items-center text-left">
+                                <p className="font-semibold italic text-xl">
+                                    Tari Bali
+                                </p>
+                                <p className="flex text-xs items-center gap-1 text-gray-200">
+                                    <IconLocationFill className="size-3" />
+                                    Kuningan, Jawa Barat
+                                </p>
+                            </div>
+                            <div className="text-left">
+                                <h5 className="text-5xl font-bold text-red-500">
+                                    100+
+                                </h5>
+                                <p className="text-xl">
+                                    Ragam Tari Tradisional
+                                </p>
+                                <p className="text-sm mt-3 text-gray-300">
+                                    Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Nisi vitae enim totam in
+                                    itaque, quasi adipisci rerum error!
+                                </p>
+                            </div>
+                        </div>
+                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                            <div className="flex justify-between items-center text-left">
+                                <p className="font-semibold italic text-xl">
+                                    Tari Bali
+                                </p>
+                                <p className="flex text-xs items-center gap-1 text-gray-200">
+                                    <IconLocationFill className="size-3" />
+                                    Kuningan, Jawa Barat
+                                </p>
+                            </div>
+                            <div className="text-left">
+                                <h5 className="text-5xl font-bold text-red-500">
+                                    100+
+                                </h5>
+                                <p className="text-xl">
+                                    Ragam Tari Tradisional
+                                </p>
+                                <p className="text-sm mt-3 text-gray-300">
+                                    Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Nisi vitae enim totam in
+                                    itaque, quasi adipisci rerum error!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
 
             <br />
             <br />
