@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
     @inertiaHead
   </head>
-  <body>
+  <body class="bg-black">
 
       @inertia
       
