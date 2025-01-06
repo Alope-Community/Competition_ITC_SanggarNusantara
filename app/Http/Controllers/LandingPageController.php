@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 class LandingPageController extends Controller
 {
     public function index(){
-        return inertia('Index');
+        $news= News::limit(5)->latest()->get();
+
+        return inertia('Index', [
+            'news' => $news
+        ]);
     }
     public function news(){
         $news= News::latest()->get();

@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarComponent from "../components/Navbar";
 import FooterComponent from "../components/Footer";
-import { usePage } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import formatDate from "../tools/formatDate";
 import strLimit from "../tools/strLimit";
 
@@ -24,8 +24,8 @@ export default function News() {
                                     <div className="flex-shrink max-w-full w-full px-3 pb-5">
                                         <div className="relative hover-img max-h-98 overflow-hidden">
                                             {/*thumbnail*/}
-                                            <a
-                                                href="#"
+                                            <Link
+                                                href={`/news/${data.slug}`}
                                                 className="text-gray-50"
                                             >
                                                 <img
@@ -33,17 +33,17 @@ export default function News() {
                                                     src={data.cover}
                                                     alt="Image description"
                                                 />
-                                            </a>
+                                            </Link>
                                             <div className="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
                                                 {/*title*/}
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    href={`/news/${data.slug}`}
                                                     className="text-gray-50"
                                                 >
                                                     <h2 className="text-3xl font-bold capitalize text-white mb-3">
                                                         {data.title}
                                                     </h2>
-                                                </a>
+                                                </Link>
                                                 <p className="text-gray-100 hidden sm:inline-block">
                                                     {strLimit(
                                                         data.description,
@@ -65,21 +65,21 @@ export default function News() {
                                 ) : (
                                     <div className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
                                         <div className="flex flex-row sm:block hover-img">
-                                            <a href="">
+                                            <Link href={`/news/${data.slug}`}>
                                                 <img
                                                     className="max-w-full w-full mx-auto h-[200px] object-cover"
                                                     src={data.cover}
                                                     alt="alt title"
                                                 />
-                                            </a>
+                                            </Link>
                                             <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                                                 <h3 className="text-lg font-bold leading-tight mb-2">
-                                                    <a
-                                                        href="#"
+                                                    <Link
+                                                        href={`/news/${data.slug}`}
                                                         className="text-gray-50"
                                                     >
                                                         {data.title}
-                                                    </a>
+                                                    </Link>
                                                 </h3>
                                                 <p className="hidden md:block text-gray-200 leading-tight mb-1">
                                                     {strLimit(
@@ -87,15 +87,15 @@ export default function News() {
                                                         100
                                                     )}
                                                 </p>
-                                                <a
+                                                <Link
+                                                    href={`/news/${data.slug}`}
                                                     className="text-gray-300 italic"
-                                                    href="#"
                                                 >
                                                     <span className="inline-block h-3 border-l-2 border-red-600 mr-2" />
                                                     {formatDate(
                                                         data.created_at
                                                     )}
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

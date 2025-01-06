@@ -18,6 +18,8 @@ import {
 import React, { useState, useEffect, useRef } from "react";
 import NavbarComponent from "../components/Navbar";
 import FooterComponent from "../components/Footer";
+import { Link, usePage } from "@inertiajs/inertia-react";
+import formatDate from "../tools/formatDate";
 
 function Layout() {
     const images = [
@@ -95,6 +97,7 @@ function Layout() {
         }, 500);
     };
 
+    const { news } = usePage().props;
     return (
         <>
             <NavbarComponent />
@@ -350,246 +353,104 @@ function Layout() {
                         Indonesia dengan Keanekaragaman Budayanya
                     </p>
                 </div>
-                <div className="grid lg:grid-cols-5 gap-10 items-center container mx-auto mt-10">
-                    <div className="h-[350px] w-full rounded-md overflow-hidden lg:col-span-2">
-                        <img
-                            src="https://warisannusantara.vercel.app/images/header/3.jpg"
-                            alt=""
-                            className="object-cover h-full w-full"
-                            data-aos-once="true"
-                            data-aos="fade-left"
-                        />
-                    </div>
-                    <div
-                        className="lg:col-span-3"
-                        data-aos-once="true"
-                        data-aos="fade-right"
-                    >
-                        <h5 className="text-red-500 font-semibold mb-2 md:text-base text-sm">
-                            RAGAM BERITA
-                        </h5>
-                        <span>
-                            <h2 className="font-bold md:text-3xl text-gray-50 text-xl">
-                                INDONESIA DENGAN KEBERAGAMAN BUDAYA NUSANTARA
-                                YANG MENDUNIA
-                            </h2>
-                        </span>
-                        <p className="text-gray-200 mt-5 md:text-base text-[12px]">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Blanditiis quasi tempore incidunt architecto
-                            maxime dolore quo? Nihil laborum saepe et, officia
-                            laboriosam accusantium dicta eius unde, eos,
-                            quisquam hic deserunt.
-                        </p>
-                        <div className="flex gap-5 mt-10 text-gray-300 md:text-base text-sm">
-                            <span className="flex gap-2 items-center">
-                                <IconEye />
-                                <small>2.000 views</small>
-                            </span>
-                            <span className="flex gap-2 items-center">
-                                <IconHeart />
-                                <small>2.000 suka</small>
-                            </span>
-                            <span className="flex gap-2 items-center">
-                                <IconMessages />
-                                <small>2.000 komentar</small>
-                            </span>
-                        </div>
-                    </div>
-                </div>
 
                 {/*  */}
 
                 <section class="lg:grid hidden grid-cols-4 gap-10 container mx-auto mt-10">
-                    <div>
-                        <img
-                            src="https://warisannusantara.vercel.app/images/festivalbali.jpeg"
-                            alt="news1"
-                            class="h-[250px] object-cover w-full rounded"
-                        />
-                        <a href="/news/read">
-                            <h3 class="mt-3 text-xl font-bold dark:text-gray-200">
-                                Bali Arts Festival
-                            </h3>
-                        </a>
-                        <div class="my-5 flex gap-5">
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
+                    {news.map((data, index) =>
+                        index == 0 ? (
+                            <div className="col-span-4 grid lg:grid-cols-5 gap-10 items-center container mx-auto mt-10">
+                                <div className="h-[350px] w-full rounded-md overflow-hidden lg:col-span-2">
+                                    <img
+                                        src={data.cover}
+                                        alt={`News Cover ${data.slug}`}
+                                        className="object-cover h-full w-full"
+                                        data-aos-once="true"
+                                        data-aos="fade-left"
+                                    />
+                                </div>
+                                <div
+                                    className="lg:col-span-3"
+                                    data-aos-once="true"
+                                    data-aos="fade-right"
                                 >
-                                    <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-                                </svg>
-                                <small>Ilham Hafidz</small>
-                            </span>
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path>
-                                </svg>
-                                <small>07 Des 2023</small>
-                            </span>
-                        </div>
-                        <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm">
-                            Setiap tahun, Festival Seni Bali menyoroti kekayaan
-                            budaya dengan durasi sebulan, memamerkan seni,
-                            musik, tarian, danliteratur Bali....
-                        </p>
-                    </div>
-                    {/*  */}
-                    <div>
-                        <img
-                            src="https://warisannusantara.vercel.app/images/dalangcilik.jpg"
-                            alt="news2"
-                            class="h-[250px] object-cover w-full rounded"
-                        />
-                        <a href="/news/read">
-                            <h3 class="mt-3 text-xl font-bold dark:text-gray-200">
-                                Festival Dalang Cilik
-                            </h3>
-                        </a>
-                        <div class="my-5 flex gap-5">
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-                                </svg>
-                                <small>Ilham Hafidz</small>
-                            </span>
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path>
-                                </svg>
-                                <small>07 Des 2023</small>
-                            </span>
-                        </div>
-                        <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm">
-                            Sepuluh dalang cilik di Semarang tampil dalam
-                            Festival Dalang Cilik, Rabu (22/11), di Gedung Ki
-                            Narto Sabdo, Taman Budaya Raden Saleh....
-                        </p>
-                    </div>
-                    <div>
-                        <img
-                            src="https://warisannusantara.vercel.app/images/babarit.jpeg"
-                            alt="news3"
-                            class="h-[250px] object-cover w-full rounded"
-                        />
-                        <a href="/news/read">
-                            <h3 class="mt-3 text-xl font-bold dark:text-gray-200">
-                                Festival Babarit
-                            </h3>
-                        </a>
-                        <div class="my-5 flex gap-5">
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-                                </svg>
-                                <small>Ilham Hafidz</small>
-                            </span>
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path>
-                                </svg>
-                                <small>07 Des 2023</small>
-                            </span>
-                        </div>
-                        <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm">
-                            Tradisi Babarit di Kuningan untuk perayaan
-                            Milangkala ke-524 (28/8/2022) menonjolkan nilai
-                            syukur, pelestarian alam, dan berbagi....
-                        </p>
-                    </div>
-                    <div>
-                        <img
-                            src="https://warisannusantara.vercel.app/images/babarit.jpeg"
-                            alt="news3"
-                            class="h-[250px] object-cover w-full rounded"
-                        />
-                        <a href="/news/read">
-                            <h3 class="mt-3 text-xl font-bold dark:text-gray-200">
-                                Festival Babarit
-                            </h3>
-                        </a>
-                        <div class="my-5 flex gap-5">
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-                                </svg>
-                                <small>Ilham Hafidz</small>
-                            </span>
-                            <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                <svg
-                                    stroke="currentColor"
-                                    fill="currentColor"
-                                    stroke-width="0"
-                                    viewBox="0 0 448 512"
-                                    height="1em"
-                                    width="1em"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path>
-                                </svg>
-                                <small>07 Des 2023</small>
-                            </span>
-                        </div>
-                        <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm">
-                            Tradisi Babarit di Kuningan untuk perayaan
-                            Milangkala ke-524 (28/8/2022) menonjolkan nilai
-                            syukur, pelestarian alam, dan berbagi....
-                        </p>
-                    </div>
+                                    <h5 className="text-red-500 font-semibold mb-2 md:text-base text-sm">
+                                        RAGAM BERITA
+                                    </h5>
+                                    <Link href={`/news/${data.slug}`}>
+                                        <span>
+                                            <h2 className="font-bold md:text-3xl text-gray-50 text-xl">
+                                                {data.title}
+                                            </h2>
+                                        </span>
+                                    </Link>
+                                    <p className="text-gray-200 mt-5 md:text-base text-[12px]">
+                                        {data.description}
+                                    </p>
+                                    {/* <div className="flex gap-5 mt-10 text-gray-300 md:text-base text-sm">
+                                        <span className="flex gap-2 items-center">
+                                            <IconEye />
+                                            <small>2.000 views</small>
+                                        </span>
+                                        <span className="flex gap-2 items-center">
+                                            <IconHeart />
+                                            <small>2.000 suka</small>
+                                        </span>
+                                        <span className="flex gap-2 items-center">
+                                            <IconMessages />
+                                            <small>2.000 komentar</small>
+                                        </span>
+                                    </div> */}
+                                    <div className="flex gap-5 mt-10 text-gray-300 md:text-base text-sm">
+                                        <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
+                                            <IconCalendarFill className="size-5" />
+                                            <small>
+                                                {formatDate(data.created_at)}
+                                            </small>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <img
+                                    src={data.cover}
+                                    alt={`News Cover ${data.slug}`}
+                                    class="h-[250px] object-cover w-full rounded"
+                                />
+                                <Link href={`/news/${data.slug}`}>
+                                    <h3 class="mt-3 text-xl font-bold dark:text-gray-200">
+                                        {data.title}
+                                    </h3>
+                                </Link>
+                                <div class="my-5 flex gap-5">
+                                    {/* <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
+                                        <svg
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            stroke-width="0"
+                                            viewBox="0 0 448 512"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
+                                        </svg>
+                                        <small>Ilham Hafidz</small>
+                                    </span> */}
+                                    <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
+                                        <IconCalendarFill className="size-5" />
+                                        <small>
+                                            {formatDate(data.created_at)}
+                                        </small>
+                                    </span>
+                                </div>
+                                <p class="text-gray-700 dark:text-gray-300 mt-2 text-sm">
+                                    {data.description}
+                                </p>
+                            </div>
+                        )
+                    )}
                 </section>
             </section>
 
