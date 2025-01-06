@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -11,6 +12,10 @@ class LandingPageController extends Controller
         return inertia('Index');
     }
     public function news(){
-        return inertia('News');
+        $news= News::latest()->get();
+
+        return inertia('News', [
+            'news' => $news
+        ]);
     }
 }
