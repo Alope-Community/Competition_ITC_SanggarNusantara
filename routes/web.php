@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\_UploadImageController;
+use App\Http\Controllers\API\NewsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -20,3 +21,4 @@ Route::get('/register', [AuthController::class, 'register']);
 
 // API
 Route::apiResource('api/news', NewsController::class);
+Route::post('api/upload-image', _UploadImageController::class);
