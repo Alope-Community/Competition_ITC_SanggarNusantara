@@ -68,8 +68,16 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $slug)
     {
-        //
+        $news = News::whereSlug($slug)->first();
+
+        if (!$news) {
+            return response()->json(['message' => 'News not found'], 404);
+        }
+
+        $news->delete();
+
+        return response()->json(['message' => 'News deleted successfully'], 200);
     }
 }
