@@ -18,4 +18,11 @@ class LandingPageController extends Controller
             'news' => $news
         ]);
     }
+    public function news_detail(Request $request){
+        $news= News::whereSlug($request->slug)->first();
+
+        return inertia('NewsDetail', [
+            'news' => $news
+        ]);
+    }
 }
