@@ -1,19 +1,8 @@
 import {
-    IconBrandFacebook,
-    IconBrandInstagram,
-    IconCalendar,
-    IconCalendar2Fill,
     IconCalendarFill,
     IconChevronRight,
-    IconEye,
-    IconHeart,
-    IconHome1,
-    IconHome1Fill,
-    IconLocation,
     IconLocationFill,
-    IconMessages,
     IconPlayFill,
-    IconTicket,
 } from "justd-icons";
 import React, { useState, useEffect, useRef } from "react";
 import NavbarComponent from "../components/Navbar";
