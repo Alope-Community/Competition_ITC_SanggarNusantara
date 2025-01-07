@@ -15,8 +15,9 @@ Route::get('/news', [LandingPageController::class, 'news']);
 Route::get('/news/{slug}', [LandingPageController::class, 'news_detail']);
 
 // AUTH
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login'])->name("auth.login");
 Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'registration']);
 
 
 // API
