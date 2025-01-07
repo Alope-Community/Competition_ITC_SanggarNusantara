@@ -1,8 +1,32 @@
 import { Link } from "@inertiajs/inertia-react";
 import { IconKeyFill, IconMailFill } from "justd-icons";
-import React from "react";
+import React, { useState } from "react";
+
+import { router } from "@inertiajs/react";
 
 export default function Login() {
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        router.post("/login", formData);
+
+        reset();
+    };
+
+    const reset = () => {
+        setFormData({
+            name: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+        });
+    };
+
     return (
         <div className="grid grid-cols-2 text-gray-50">
             <div className="flex items-center justify-center flex-col">
@@ -21,50 +45,73 @@ export default function Login() {
                         </p>
                     </div>
 
-                    <div className="mb-5">
-                        <div className="label">
-                            <span className="label-text">Email</span>
+                    <form
+                        action=""
+                        method="POST"
+                        onSubmit={(e) => handleLogin(e)}
+                    >
+                        <div className="mb-5">
+                            <div className="label">
+                                <span className="label-text">Email</span>
+                            </div>
+                            <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2">
+                                    <IconMailFill className="text-red-500 size-5" />
+                                </span>
+                                <input
+                                    type="text"
+                                    className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600"
+                                    placeholder="Email"
+                                    value={formData.email}
+                                    onChange={(e) => {
+                                        setFormData({
+                                            ...formData,
+                                            email: e.target.value,
+                                        });
+                                    }}
+                                />
+                            </div>
                         </div>
-                        <div className="relative">
-                            <span className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <IconMailFill className="text-red-500 size-5" />
-                            </span>
-                            <input
-                                type="text"
-                                className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600"
-                                placeholder="Email"
-                            />
+                        <div className="mb-5">
+                            <div className="label">
+                                <span className="label-text">Password</span>
+                            </div>
+                            <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2">
+                                    <IconKeyFill className="text-red-500 size-5" />
+                                </span>
+                                <input
+                                    type="password"
+                                    className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600"
+                                    placeholder="Password"
+                                    value={formData.password}
+                                    onChange={(e) => {
+                                        setFormData({
+                                            ...formData,
+                                            password: e.target.value,
+                                        });
+                                    }}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="mb-5">
-                        <div className="label">
-                            <span className="label-text">Password</span>
-                        </div>
-                        <div className="relative">
-                            <span className="absolute left-3 top-1/2 -translate-y-1/2">
-                                <IconKeyFill className="text-red-500 size-5" />
-                            </span>
-                            <input
-                                type="password"
-                                className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600"
-                                placeholder="Password"
-                            />
-                        </div>
-                    </div>
-                    <div className="mt-10 text-center">
-                        <button className="bg-red-500 w-full py-3 text-white rounded hover:bg-red-400">
-                            Login
-                        </button>
-                        <p className="mt-4">
-                            Belum punya akun?{" "}
-                            <Link
-                                href="/register"
-                                className="text-red-500 font-medium"
+                        <div className="mt-10 text-center">
+                            <button
+                                type="submit"
+                                className="bg-red-500 w-full py-3 text-white rounded hover:bg-red-400"
                             >
-                                Daftar
-                            </Link>
-                        </p>
-                    </div>
+                                Login
+                            </button>
+                            <p className="mt-4">
+                                Belum punya akun?{" "}
+                                <Link
+                                    href="/register"
+                                    className="text-red-500 font-medium"
+                                >
+                                    Daftar
+                                </Link>
+                            </p>
+                        </div>
+                    </form>
                 </div>
 
                 <p className="absolute bottom-10 text-gray-300 italic text-sm">
