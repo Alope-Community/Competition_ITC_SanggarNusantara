@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\API\_UploadImageController;
-use App\Http\Controllers\API\NewsController;
+use App\Http\Controllers\API\{_UploadImageController, DashboardController, NewsController};
+
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\SubscribeController;
@@ -27,5 +27,7 @@ Route::middleware(['web'])->group(function () {
 });
 
 // API
+Route::get('api/dashboard', DashboardController::class);
+
 Route::apiResource('api/news', NewsController::class);
 Route::post('api/upload-image', _UploadImageController::class);
