@@ -3,6 +3,7 @@ import { Link } from "@inertiajs/inertia-react";
 import { router } from "@inertiajs/react";
 
 import {
+    IconHome2Fill,
     IconKeyFill,
     IconLockFill,
     IconMailFill,
@@ -100,7 +101,7 @@ export default function Register() {
             <ToastContainer theme="dark" />
             <div className="grid grid-cols-2 text-gray-50">
                 <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] w-full h-screen bg-cover bg-center relative z-10 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:to-black/10 after:from-black/60 after:-z-10">
-                    <div className="border-l-4 border-red-500 py-5 pl-5 w-1/2 absolute bottom-20 left-0">
+                    <div className="border-l-4 border-red-600 py-5 pl-5 w-1/2 absolute bottom-20 left-0">
                         <h3 className="text-3xl font-semibold text-gray-50">
                             Sanggar Nusantara
                         </h3>
@@ -229,6 +230,16 @@ export default function Register() {
                                         className="text-red-500 font-medium"
                                     >
                                         Login
+                                    </Link>
+                                </p>
+                                <hr className="my-5 border-t border-gray-800" />
+                                <p className="mt-3 text-sm">
+                                    <Link
+                                        href="/"
+                                        className="inline-flex px-2 items-center justify-center gap-2 hover:border-b border-red-500 pb-1 text-gray-300"
+                                    >
+                                        <IconHome2Fill className="text-gray-300" />
+                                        Kembali ke Beranda
                                     </Link>
                                 </p>
                             </div>
