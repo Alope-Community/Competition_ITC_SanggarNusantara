@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Progress Bar */
+#nprogress .bar {
+    background: linear-gradient(
+        to right,
+        rgb(239, 68, 68),
+        rgb(220, 38, 38)
+    ) !important; /* Perbaikan syntax linear-gradient */
+    height: 4px !important; /* Sesuaikan tinggi jika diperlukan */
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px rgb(239, 68, 68), 0 0 5px rgb(220, 38, 38) !important; /* Efek bayangan yang sesuai */
+}
+
+#nprogress .spinner-icon {
+    border-top-color: rgb(
+        239,
+        68,
+        68
+    ) !important; /* Warna spinner bagian atas */
+    border-left-color: rgb(
+        239,
+        68,
+        68
+    ) !important; /* Warna spinner bagian kiri */
+}
