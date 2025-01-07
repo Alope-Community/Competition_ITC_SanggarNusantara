@@ -116,7 +116,7 @@ export default function Login() {
                                     </span>
                                     <input
                                         type="text"
-                                        className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600"
+                                        className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600 outline-none"
                                         placeholder="Email"
                                         value={formData.email}
                                         onChange={(e) => {
@@ -138,7 +138,7 @@ export default function Login() {
                                     </span>
                                     <input
                                         type="password"
-                                        className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600"
+                                        className="pl-10 py-3 rounded w-full text-gray-100 bg-gray-900 shadow shadow-gray-600 outline-none"
                                         placeholder="Password"
                                         value={formData.password}
                                         onChange={(e) => {
