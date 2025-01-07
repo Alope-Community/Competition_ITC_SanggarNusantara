@@ -132,23 +132,23 @@ function LandingPage() {
                     backgroundImage: `url(${images[currentImage].image})`,
                 }}
             >
-                <div className="container mx-auto h-full flex flex-col justify-center relative">
-                    <h1 className="font-medium text-8xl text-white">
+                <div className="container mx-auto h-full flex flex-col justify-center relative lg:px-0 px-10">
+                    <h1 className="font-medium text-6xl lg:text-8xl text-white">
                         Sanggar <br />{" "}
-                        <span className="text-9xl font-bold text-red-500 ">
+                        <span className="text-7xl lg:text-9xl font-bold text-red-500 ">
                             NUSANTARA
                         </span>
                     </h1>
 
-                    <div className="absolute left-0 bottom-14 flex flex-row items-end justify-between">
-                        <div className="w-1/2">
+                    <div className="absolute lg:left-0 left-10 bottom-14 flex lg:flex-row flex-col lg:items-end items-start justify-between">
+                        <div className="lg:w-1/2 w-5/6">
                             <p className="text-white">
                                 {images[currentImage].description}
                             </p>
                         </div>
 
                         {/* Loading Bar */}
-                        <div className="w-[300px] h-1 bg-gray-800">
+                        <div className="w-[300px] lg:mt-0 mt-10 h-1 bg-gray-800">
                             <div
                                 className="h-full bg-red-500 transition-all duration-[50ms]"
                                 style={{ width: `${loadingWidth}%` }}
@@ -158,7 +158,7 @@ function LandingPage() {
                 </div>
 
                 {/* Controls */}
-                <div className="backdrop-blur-xl absolute right-10 top-1/2 -translate-y-1/2 p-3 flex flex-col gap-8 justify-center items-center">
+                <div className="backdrop-blur-xl absolute lg:right-10 right-7 top-1/2 -translate-y-1/2 p-3 flex flex-col gap-8 justify-center items-center">
                     {images.map((image, index) => (
                         <div
                             key={index}
@@ -174,7 +174,7 @@ function LandingPage() {
                             >
                                 {image.title}
                             </p>
-                            <span className="text-3xl font-semibold text-white">
+                            <span className="text-2xl lg:text-3xl font-semibold text-white">
                                 0{index + 1}
                             </span>
                         </div>
@@ -183,7 +183,7 @@ function LandingPage() {
             </header>
 
             <main className="text-gray-100 py-20">
-                <section className="text-center mt-28 container mx-auto">
+                <section className="text-center mt-28 container mx-auto lg:px-0 px-10">
                     <div>
                         <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
                             <IconArchive2Fill className="text-white" />
@@ -198,7 +198,7 @@ function LandingPage() {
 
                     <hr className="w-2/3 mx-auto border-gray-700 my-7" />
 
-                    <div className="grid gap-7 grid-cols-4 mt-10">
+                    <div className="grid gap-7 lg:grid-cols-4 grid-cols-2 mt-10">
                         <div className="bg-[url(https://warisannusantara.vercel.app/images/explore/2.jpg)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
                             <div className="flex justify-between items-center text-left">
                                 <p className="font-semibold italic text-xl">
@@ -294,8 +294,8 @@ function LandingPage() {
                 </section>
                 {/*  */}
                 <section className="mt-36 bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-screen z-10 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/80 after:to-black/40 after:-z-10">
-                    <div className="container mx-auto h-full flex items-center">
-                        <div className="grid grid-cols-3 items-center h-full">
+                    <div className="container mx-auto h-full flex items-center lg:px-0 px-10">
+                        <div className="grid lg:grid-cols-3 items-center h-full">
                             <div>
                                 <h3 className="text-5xl font-semibold">
                                     Mari Kenali Keragaman <br /> Budaya
@@ -318,23 +318,23 @@ function LandingPage() {
                                     Lihat Video
                                 </a>
                             </div>
-                            <div className="col-span-2 text-right relative h-full">
-                                <div className="absolute bottom-10 right-0">
+                            <div className="lg:col-span-2 lg:text-right relative h-full">
+                                <div className="absolute bottom-10 lg:right-0 left-0">
                                     <h5 className="text-3xl font-semibold text-gray-200 inline-flex gap-2 items-center">
                                         <IconGlobe2Fill className="size-7 text-red-500" />
                                         Indonesia di Mata Dunia
                                     </h5>
-                                    <div className="mt-10 w-[500px]">
+                                    <div className="lg:mt-10 mt-5 w-[500px]">
                                         {indonesiaInTheEyesOfWorld.map(
                                             (news, index) => (
                                                 <div
                                                     key={index}
-                                                    className="py-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border"
+                                                    className="py-4 cursor-pointer duration-200 lg:border-r-4 border-l-4 border-red-500 hover:border-white lg:pr-4 pr-0 lg:pl-0 pl-4 box-border"
                                                 >
                                                     <Link
                                                         href={`/news/${news.slug}`}
                                                     >
-                                                        <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
+                                                        <p className="text-gray-300 text-right flex lg:justify-end gap-1 items-center text-sm italic">
                                                             <IconCalendarFill />
                                                             {formatDate(
                                                                 news.created_at
@@ -378,12 +378,12 @@ function LandingPage() {
 
                 <hr className="w-2/3 mx-auto border-gray-700 my-5" />
 
-                <section class="lg:grid hidden grid-cols-4 gap-10 container mx-auto mt-4">
+                <section class="grid lg:grid-cols-4 grid-cols-2 lg:gap-10 gap-7 container mx-auto mt-4 lg:px-0 px-10">
                     {news.map((data, index) =>
                         index == 0 ? (
                             <div
                                 key={index}
-                                className="col-span-4 grid lg:grid-cols-5 gap-10 items-center container mx-auto mt-10"
+                                className="lg:col-span-4 col-span-2 grid lg:grid-cols-5 gap-10 items-center container mx-auto mt-10"
                             >
                                 <div className="h-[350px] w-full rounded-md overflow-hidden lg:col-span-2">
                                     <img
@@ -412,7 +412,7 @@ function LandingPage() {
                                     <p className="text-gray-200 mt-5 md:text-base text-[12px]">
                                         {data.description}
                                     </p>
-                                    <div className="flex gap-5 mt-10 text-gray-300 md:text-base text-sm">
+                                    <div className="flex gap-5 lg:mt-10 mt-4 text-gray-300 md:text-base text-sm">
                                         <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
                                             <IconCalendarFill className="size-5" />
                                             <small>
@@ -434,7 +434,7 @@ function LandingPage() {
                                         {data.title}
                                     </h3>
                                 </Link>
-                                <div class="my-5 flex gap-5">
+                                <div class="lg:my-5 my-3 flex gap-5">
                                     <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
                                         <IconCalendarFill className="size-5" />
                                         <small>
@@ -467,7 +467,7 @@ function LandingPage() {
 
                 <hr className="w-2/3 mx-auto border-gray-700 my-5" />
 
-                <section class="lg:grid hidden grid-cols-2 gap-10 container mx-auto mt-4">
+                <section class="grid grid-cols-2 lg:gap-10 gap-7 container mx-auto mt-4 lg:px-0 px-10">
                     {events.map((event, index) => (
                         <div
                             key={index}
@@ -513,8 +513,9 @@ function LandingPage() {
             <section className="bg-gradient-to-r from-red-500 to-red-600 py-20 text-center mt-20 mx-auto md:px-10 px-5">
                 <p className="text-white font-semibold lg:text-3xl md:text-2xl">
                     “Keberagaman suku dan budaya Indonesia ini menjadi kekayaan{" "}
-                    <br /> besar bangsa sekaligus juga kekuatan besar,{" "}
-                    <br className="lg:block inline" /> bukan menjadi kelemahan.”
+                    <br className="lg:block hidden" /> besar bangsa sekaligus
+                    juga kekuatan besar, <br className="lg:block hidden" />{" "}
+                    bukan menjadi kelemahan.”
                 </p>
                 <h4 className="font-semibold mt-10 text-xl text-white">
                     Joko Widodo

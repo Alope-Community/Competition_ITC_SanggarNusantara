@@ -33,7 +33,7 @@ export default function NavbarComponent() {
     return (
         <>
             <nav className="fixed z-50 w-full backdrop-blur shadow-sm">
-                <div className="container flex justify-between items-center mx-auto">
+                <div className="container flex justify-between items-center mx-auto lg:px-0 px-10">
                     <div className="py-5">
                         <Link href="/">
                             <h5 className="text-2xl text-white">
@@ -41,8 +41,8 @@ export default function NavbarComponent() {
                             </h5>
                         </Link>
                     </div>
-                    <div className="flex items-center gap-5">
-                        <div className="border-b-2 py-5 border-red-500 px-8 mr-5">
+                    <div className="flex items-center lg:gap-5 gap-3">
+                        <div className="border-b-2 py-5 border-red-500 lg:px-8 px-5 lg:mr-5 mr-3">
                             <ul className="flex gap-6 items-center text-white">
                                 <li>
                                     <Link
