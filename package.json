@@ -22,6 +22,7 @@
         "@inertiajs/react": "^2.0.0",
         "justd-icons": "^1.10.10",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0"
+        "react-dom": "^19.0.0",
+        "react-toastify": "^11.0.2"
     }
 }
