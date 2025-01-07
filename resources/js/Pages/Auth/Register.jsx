@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import { router } from "@inertiajs/react";
 
 import {
@@ -25,6 +25,14 @@ export default function Register() {
         password: "",
         password_confirmation: "",
     });
+
+    // Handle authenticated to register page
+    const { auth } = usePage().props;
+    useEffect(() => {
+        if (auth.user) {
+            window.location.replace("/");
+        }
+    }, [auth]);
 
     const handleRegister = (e) => {
         e.preventDefault();

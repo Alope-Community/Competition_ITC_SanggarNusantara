@@ -9,8 +9,6 @@ export default function NavbarComponent() {
     const { url } = usePage();
     const { auth } = usePage().props;
 
-    console.log(auth);
-
     // Dropdown
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);

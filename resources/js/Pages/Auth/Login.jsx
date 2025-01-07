@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { router } from "@inertiajs/react";
-import { Link } from "@inertiajs/inertia-react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 
 import { ToastContainer, toast } from "react-toastify";
 import { IconHome2Fill, IconKeyFill, IconMailFill } from "justd-icons";
@@ -17,6 +17,14 @@ export default function Login() {
         email: "",
         password: "",
     });
+
+    // Handle authenticated to login page
+    const { auth } = usePage().props;
+    useEffect(() => {
+        if (auth.user) {
+            window.location.replace("/");
+        }
+    }, [auth]);
 
     const handleLogin = (e) => {
         e.preventDefault();
