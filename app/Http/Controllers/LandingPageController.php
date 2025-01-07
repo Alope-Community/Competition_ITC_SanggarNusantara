@@ -10,9 +10,11 @@ class LandingPageController extends Controller
 {
     public function index(){
         $news= News::limit(5)->latest()->get();
+        $indonesiaInTheEyesOfWorld = News::limit(3)->get();
 
         return inertia('Index', [
-            'news' => $news
+            'news' => $news, 
+            "indonesiaInTheEyesOfWorld" => $indonesiaInTheEyesOfWorld
         ]);
     }
     public function news(){

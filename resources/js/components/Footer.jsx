@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 
 import {
     IconBrandFacebook,
@@ -7,6 +8,11 @@ import {
 } from "justd-icons";
 
 export default function FooterComponent() {
+    const { url } = usePage();
+
+    // Fungsi untuk menentukan apakah link aktif
+    const isActive = (path) => url.startsWith(path);
+
     return (
         <footer className="pt-16 pb-5 text-center text-gray-100">
             <span className="size-10 bg-red-500 inline-flex items-center justify-center rounded-full">
@@ -17,9 +23,27 @@ export default function FooterComponent() {
                 Sanggar Nusantara
             </h3>
             <ul className="flex justify-center gap-6 items-center text-white mb-5">
-                <li>Home</li>
-                <li>About</li>
-                <li>Gallery</li>
+                <li>
+                    <Link href="/" className={url == "/" ? "font-bold" : ""}>
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/news"
+                        className={isActive("/news") ? "font-bold" : ""}
+                    >
+                        Berita
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        href="/events"
+                        className={isActive("/events") ? "font-bold" : ""}
+                    >
+                        Event
+                    </Link>
+                </li>
             </ul>
 
             <div className="inline-flex gap-3 my-3">

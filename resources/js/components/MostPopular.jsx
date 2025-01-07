@@ -15,7 +15,7 @@ export default function MostPopularComponent(oldestNews) {
                         <li
                             className={`${
                                 index < 4 ? "border-b" : ""
-                            } border-slate-700 hover:bg-red-500/40`}
+                            } border-slate-700 hover:bg-red-500/40 hover:border-red-600`}
                         >
                             <Link
                                 className="text-lg font-bold px-6 py-3 flex flex-row items-center"

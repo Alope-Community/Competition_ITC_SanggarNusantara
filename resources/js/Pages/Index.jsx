@@ -4,6 +4,8 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 import {
     IconCalendarFill,
     IconChevronRight,
+    IconGlobe2Fill,
+    IconGlobeFill,
     IconLocationFill,
     IconPlayFill,
 } from "justd-icons";
@@ -20,21 +22,21 @@ import removeQueryParam from "../tools/removeQueryParam";
 function LandingPage() {
     const images = [
         {
-            title: "Sanggar Nusantara",
+            title: "Upacara Ngaben",
             description:
-                "Sanggar Nusantara Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui alias nam dignissimos, aut, magnam eligendi expedita, cum maxime quaerat tempora error aperiam minus? Expedita sunt aliquam commodi placeat, fugit labore!",
-            image: "https://images.unsplash.com/photo-1731983623952-1eb73449cfbd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "Sanggar Nusantara adalah wadah pelestarian seni dan budaya Indonesia. Di sini, tradisi dan kreativitas bertemu untuk menghadirkan warisan budaya yang terus hidup dan menginspirasi generasi penerus.",
+            image: "https://images.unsplash.com/photo-1511164657592-59a452023479?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "Tari Kecak",
+            title: "Bonang",
             description:
-                "Tari Kecak Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui alias nam dignissimos, aut, magnam eligendi expedita, cum maxime quaerat tempora error aperiam minus? Expedita sunt aliquam commodi placeat, fugit labore!",
-            image: "https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "Sanggar Nusantara adalah wadah pelestarian seni dan budaya Indonesia. Di sini, tradisi dan kreativitas bertemu untuk menghadirkan warisan budaya yang terus hidup dan menginspirasi generasi penerus.",
+            image: "https://images.unsplash.com/photo-1616352180164-01ce1a420b83?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "Rumah Susun",
+            title: "Arsitektur",
             description:
-                "Rumah Susun Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui alias nam dignissimos, aut, magnam eligendi expedita, cum maxime quaerat tempora error aperiam minus? Expedita sunt aliquam commodi placeat, fugit labore!",
+                "Sanggar Nusantara adalah wadah pelestarian seni dan budaya Indonesia. Di sini, tradisi dan kreativitas bertemu untuk menghadirkan warisan budaya yang terus hidup dan menginspirasi generasi penerus.",
             image: "https://images.unsplash.com/photo-1728562105573-0b33c5d4dd95?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
     ];
@@ -113,7 +115,8 @@ function LandingPage() {
         }, 500);
     };
 
-    const { news } = usePage().props;
+    const { news, indonesiaInTheEyesOfWorld } = usePage().props;
+
     return (
         <>
             <ToastContainer theme="dark" />
@@ -185,100 +188,98 @@ function LandingPage() {
                             Indonesia dengan Keanekaragaman Budayanya
                         </p>
                     </div>
+
+                    <hr className="w-2/3 mx-auto border-gray-700 my-7" />
+
                     <div className="grid gap-7 grid-cols-4 mt-10">
-                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                        <div className="bg-[url(https://warisannusantara.vercel.app/images/explore/2.jpg)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
                             <div className="flex justify-between items-center text-left">
                                 <p className="font-semibold italic text-xl">
-                                    Tari Bali
+                                    Kebaya Sunda
                                 </p>
                                 <p className="flex text-xs items-center gap-1 text-gray-200">
                                     <IconLocationFill className="size-3" />
-                                    Kuningan, Jawa Barat
+                                    Jawa Barat
                                 </p>
                             </div>
                             <div className="text-left">
                                 <h5 className="text-5xl font-bold text-red-500">
-                                    100+
+                                    38
                                 </h5>
-                                <p className="text-xl">
-                                    Ragam Tari Tradisional
-                                </p>
+                                <p className="text-xl">Pakaian Adat</p>
                                 <p className="text-sm mt-3 text-gray-300">
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Nisi vitae enim totam in
-                                    itaque, quasi adipisci rerum error!
+                                    Setiap desain memiliki makna mendalam yang
+                                    menggambarkan tradisi serta nilai-nilai
+                                    masyarakatnya.
                                 </p>
                             </div>
                         </div>
-                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                        <div className="bg-[url(https://images.unsplash.com/photo-1518894347072-3bfedb006095?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
                             <div className="flex justify-between items-center text-left">
                                 <p className="font-semibold italic text-xl">
-                                    Tari Bali
+                                    Rumah gadang bagonjong enam
                                 </p>
                                 <p className="flex text-xs items-center gap-1 text-gray-200">
                                     <IconLocationFill className="size-3" />
-                                    Kuningan, Jawa Barat
+                                    Sumatra Barat
                                 </p>
                             </div>
                             <div className="text-left">
                                 <h5 className="text-5xl font-bold text-red-500">
-                                    100+
+                                    34
                                 </h5>
                                 <p className="text-xl">
-                                    Ragam Tari Tradisional
+                                    Rumah Adat / Arsitektur
                                 </p>
                                 <p className="text-sm mt-3 text-gray-300">
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Nisi vitae enim totam in
-                                    itaque, quasi adipisci rerum error!
+                                    Mencerminkan identitas budaya setiap daerah,
+                                    dengan desain arsitektur yang penuh makna
+                                    serta fungsi yang selaras dengan nilai
+                                    tradisional.
                                 </p>
                             </div>
                         </div>
-                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                        <div className="bg-[url(https://warisannusantara.vercel.app/images/festivalbali.jpeg)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
                             <div className="flex justify-between items-center text-left">
                                 <p className="font-semibold italic text-xl">
-                                    Tari Bali
+                                    Tari Cokek
                                 </p>
                                 <p className="flex text-xs items-center gap-1 text-gray-200">
                                     <IconLocationFill className="size-3" />
-                                    Kuningan, Jawa Barat
+                                    Jakarta
                                 </p>
                             </div>
                             <div className="text-left">
                                 <h5 className="text-5xl font-bold text-red-500">
-                                    100+
+                                    3000+
                                 </h5>
-                                <p className="text-xl">
-                                    Ragam Tari Tradisional
-                                </p>
+                                <p className="text-xl">Tari Tradisional</p>
                                 <p className="text-sm mt-3 text-gray-300">
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Nisi vitae enim totam in
-                                    itaque, quasi adipisci rerum error!
+                                    Cerminan kekayaan budaya, menghadirkan
+                                    keindahan gerak dan makna yang mendalam
+                                    dalam setiap langkahnya.
                                 </p>
                             </div>
                         </div>
-                        <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
+                        <div className="bg-[url(https://images.unsplash.com/photo-1655802437200-ddea124855f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-[700px] z-10 w-full rounded flex flex-col justify-between p-4 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black after:to-black/0 after:-z-10">
                             <div className="flex justify-between items-center text-left">
                                 <p className="font-semibold italic text-xl">
-                                    Tari Bali
+                                    Ngaben
                                 </p>
                                 <p className="flex text-xs items-center gap-1 text-gray-200">
                                     <IconLocationFill className="size-3" />
-                                    Kuningan, Jawa Barat
+                                    Bali
                                 </p>
                             </div>
                             <div className="text-left">
                                 <h5 className="text-5xl font-bold text-red-500">
-                                    100+
+                                    37
                                 </h5>
-                                <p className="text-xl">
-                                    Ragam Tari Tradisional
-                                </p>
+                                <p className="text-xl">Upacara Adat</p>
                                 <p className="text-sm mt-3 text-gray-300">
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Nisi vitae enim totam in
-                                    itaque, quasi adipisci rerum error!
+                                    Mencerminkan nilai-nilai luhur, tradisi, dan
+                                    kepercayaan yang menjadikan setiap upacara
+                                    penuh makna dan simbolisme budaya.
                                 </p>
                             </div>
                         </div>
@@ -294,12 +295,11 @@ function LandingPage() {
                                     Nusantara
                                 </h3>
                                 <p className="text-gray-300 mt-5 mb-7">
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Dolore quam aperiam eum
-                                    consectetur amet at sit deserunt,
-                                    praesentium nisi asperiores, laudantium
-                                    exercitationem? Dicta quasi ducimus
-                                    voluptatibus itaque facilis eius laborum!
+                                    Jelajahi kekayaan budaya Indonesia yang
+                                    penuh dengan keunikan, tradisi, dan sejarah.
+                                    Dari Sabang hingga Merauke, setiap daerah
+                                    menyimpan cerita dan warisan yang tak
+                                    ternilai.
                                 </p>
                                 <a
                                     href=""
@@ -313,47 +313,41 @@ function LandingPage() {
                             </div>
                             <div className="col-span-2 text-right relative h-full">
                                 <div className="absolute bottom-10 right-0">
-                                    <h5 className="text-3xl font-semibold text-gray-200">
+                                    <h5 className="text-3xl font-semibold text-gray-200 inline-flex gap-2 items-center">
+                                        <IconGlobe2Fill className="size-7 text-red-500" />
                                         Indonesia di Mata Dunia
                                     </h5>
-                                    <div className="mt-10">
-                                        <div className="py-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border">
-                                            <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
-                                                <IconCalendarFill />
-                                                28 Oktober 2025
-                                            </p>
-                                            <h5 className="text-xl font-semibold">
-                                                Borobudur Menjadi Tempat Wisata
-                                                Terbaik UNESCO
-                                            </h5>
-                                        </div>
-                                        <div className="py-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border">
-                                            <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
-                                                <IconCalendarFill />
-                                                28 Oktober 2025
-                                            </p>
-                                            <h5 className="text-xl font-semibold">
-                                                Bahasa Indonesia Resmi jadi
-                                                Bahasa PBB
-                                            </h5>
-                                        </div>
-                                        <div className="pt-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border pb-12">
-                                            <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
-                                                <IconCalendarFill />
-                                                28 Oktober 2025
-                                            </p>
-                                            <h5 className="text-xl font-semibold">
-                                                Bali Jadi Tempat FIFA Word Cup
-                                            </h5>
-                                        </div>
+                                    <div className="mt-10 w-[500px]">
+                                        {indonesiaInTheEyesOfWorld.map(
+                                            (news, index) => (
+                                                <div
+                                                    key={index}
+                                                    className="py-4 cursor-pointer duration-200 border-r-4 border-red-500 hover:border-white pr-4 box-border"
+                                                >
+                                                    <Link
+                                                        href={`/news/${news.slug}`}
+                                                    >
+                                                        <p className="text-gray-300 text-right flex justify-end gap-1 items-center text-sm italic">
+                                                            <IconCalendarFill />
+                                                            {formatDate(
+                                                                news.created_at
+                                                            )}
+                                                        </p>
+                                                        <h5 className="text-xl font-semibold">
+                                                            {news.title}
+                                                        </h5>
+                                                    </Link>
+                                                </div>
+                                            )
+                                        )}
                                     </div>
-                                    <a
-                                        href=""
+                                    <Link
+                                        href="/news"
                                         className="group inline-flex items-center gap-2 px-5 py-3 rounded bg-red-500 hover:bg-red-400"
                                     >
                                         Lihat Semua Berita
                                         <IconChevronRight className="group-hover:block hidden size-5" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -364,16 +358,17 @@ function LandingPage() {
             <section>
                 <div className="text-center">
                     <h3 className="text-4xl font-bold text-gray-50">
-                        Ragam Budaya
+                        Kabar Budaya
                     </h3>
-                    <p className="text-gray-300">
-                        Indonesia dengan Keanekaragaman Budayanya
+                    <p className="text-lg text-gray-300 mt-2">
+                        Jelajahi cerita dan informasi terkini tentang kekayaan
+                        budaya Indonesia.
                     </p>
                 </div>
 
-                {/*  */}
+                <hr className="w-2/3 mx-auto border-gray-700 my-5" />
 
-                <section class="lg:grid hidden grid-cols-4 gap-10 container mx-auto mt-10">
+                <section class="lg:grid hidden grid-cols-4 gap-10 container mx-auto mt-4">
                     {news.map((data, index) =>
                         index == 0 ? (
                             <div
@@ -456,7 +451,7 @@ function LandingPage() {
                     Joko Widodo
                 </h4>
                 <small className="text-white">
-                    Presiden Republik Indonesia
+                    Presiden ke-7 Republik Indonesia
                 </small>
             </section>
 
