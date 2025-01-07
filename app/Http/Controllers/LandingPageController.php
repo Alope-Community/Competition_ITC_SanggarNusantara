@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
+use App\Models\{Event, News};
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -11,10 +11,14 @@ class LandingPageController extends Controller
     public function index(){
         $news= News::limit(5)->latest()->get();
         $indonesiaInTheEyesOfWorld = News::limit(3)->get();
+        
+        $events= Event::limit(4)->latest()->get();
+
 
         return inertia('Index', [
             'news' => $news, 
-            "indonesiaInTheEyesOfWorld" => $indonesiaInTheEyesOfWorld
+            "indonesiaInTheEyesOfWorld" => $indonesiaInTheEyesOfWorld,
+            'events' => $events, 
         ]);
     }
     public function news(){

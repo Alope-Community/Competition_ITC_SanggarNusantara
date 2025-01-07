@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 import {
+    IconArchive2Fill,
+    IconCalendar2Fill,
     IconCalendarFill,
     IconChevronRight,
     IconGlobe2Fill,
@@ -115,7 +117,7 @@ function LandingPage() {
         }, 500);
     };
 
-    const { news, indonesiaInTheEyesOfWorld } = usePage().props;
+    const { news, indonesiaInTheEyesOfWorld, events } = usePage().props;
 
     return (
         <>
@@ -183,7 +185,12 @@ function LandingPage() {
             <main className="text-gray-100 py-20">
                 <section className="text-center mt-28 container mx-auto">
                     <div>
-                        <h3 className="text-4xl font-bold">Ragam Budaya</h3>
+                        <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
+                            <IconArchive2Fill className="text-white" />
+                        </span>
+                        <h3 className="text-4xl font-bold mt-2">
+                            Ragam Budaya
+                        </h3>
                         <p className="text-gray-300">
                             Indonesia dengan Keanekaragaman Budayanya
                         </p>
@@ -357,7 +364,10 @@ function LandingPage() {
 
             <section>
                 <div className="text-center">
-                    <h3 className="text-4xl font-bold text-gray-50">
+                    <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
+                        <IconArchive2Fill className="text-white" />
+                    </span>
+                    <h3 className="text-4xl font-bold text-gray-50 mt-2">
                         Kabar Budaya
                     </h3>
                     <p className="text-lg text-gray-300 mt-2">
@@ -438,6 +448,65 @@ function LandingPage() {
                             </div>
                         )
                     )}
+                </section>
+            </section>
+
+            <section className="mt-36">
+                <div className="text-center">
+                    <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
+                        <IconCalendar2Fill className="text-white" />
+                    </span>
+                    <h3 className="text-4xl font-bold text-gray-50 mt-2">
+                        Ragam Event
+                    </h3>
+                    <p className="text-lg text-gray-300 mt-2">
+                        Jelajahi cerita dan informasi terkini tentang kekayaan
+                        budaya Indonesia.
+                    </p>
+                </div>
+
+                <hr className="w-2/3 mx-auto border-gray-700 my-5" />
+
+                <section class="lg:grid hidden grid-cols-2 gap-10 container mx-auto mt-4">
+                    {events.map((event, index) => (
+                        <div
+                            key={index}
+                            className="grid lg:grid-cols-5 gap-5 items-center"
+                        >
+                            <div className="w-full rounded-md overflow-hidden lg:col-span-2">
+                                <img
+                                    src={event.banner}
+                                    alt={`News Cover ${event.slug}`}
+                                    className="object-cover h-full w-full"
+                                />
+                            </div>
+                            <div className="lg:col-span-3">
+                                <Link href={`/news/${event.slug}`}>
+                                    <span>
+                                        <h2 className="font-bold md:text-3xl text-gray-50 text-xl">
+                                            {event.title}
+                                        </h2>
+                                    </span>
+                                </Link>
+                                <p className="text-gray-200 mt-5 md:text-base text-[12px]">
+                                    {event.description}
+                                </p>
+                                <div className="flex flex-col gap-2 mt-5 text-gray-300 md:text-base text-sm">
+                                    <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
+                                        <IconCalendarFill className="size-5" />
+                                        <small>
+                                            {`${formatDate(event.started)} -
+                                                ${formatDate(event.ended)}`}
+                                        </small>
+                                    </span>
+                                    <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
+                                        <IconLocationFill className="size-5" />
+                                        <small>{event.location}</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </section>
             </section>
 
