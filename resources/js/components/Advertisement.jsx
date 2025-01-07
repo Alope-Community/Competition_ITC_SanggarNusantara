@@ -2,11 +2,8 @@ import React from "react";
 
 export default function AdvertisementComponent() {
     return (
-        <div className="text-sm py-6 sticky">
+        <div className="text-sm lg:py-6 sticky">
             <div className="w-full text-center">
-                <a className="uppercase" href="#">
-                    Advertisement
-                </a>
                 <a href="#" className="text-gray-50">
                     <img
                         className="mx-auto"

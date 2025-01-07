@@ -19,13 +19,13 @@ export default function News() {
             <NavbarComponent />
 
             <main className="pt-36">
-                <div className="container mx-auto grid grid-cols-3 gap-10">
+                <div className="container mx-auto grid lg:grid-cols-3 gap-10 lg:px-0 md:px-8 px-2">
                     {/* post */}
-                    <div className="overflow-hidden order-1 col-span-2">
-                        <div className="flex flex-row flex-wrap -mx-3">
+                    <div className="overflow-hidden order-1 lg:col-span-2">
+                        <div className="flex flex-row flex-wrap">
                             {news.map((data, index) =>
                                 index == 0 ? (
-                                    <div className="flex-shrink max-w-full w-full px-3 pb-5">
+                                    <div className="flex-shrink max-w-full w-full px-2 pb-5">
                                         <div className="relative hover-img max-h-98 overflow-hidden">
                                             {/*thumbnail*/}
                                             <Link
@@ -33,18 +33,18 @@ export default function News() {
                                                 className="text-gray-50"
                                             >
                                                 <img
-                                                    className="max-w-full w-full mx-auto h-[600px] object-cover"
+                                                    className="max-w-full w-full mx-auto lg:h-[600px] h-[400px] object-cover"
                                                     src={data.cover}
                                                     alt="Image description"
                                                 />
                                             </Link>
-                                            <div className="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
+                                            <div className="absolute lg:px-5 lg:pt-8 lg:pb-5 px-3 pb-3 bottom-0 w-full bg-gradient-cover">
                                                 {/*title*/}
                                                 <Link
                                                     href={`/news/${data.slug}`}
                                                     className="text-gray-50"
                                                 >
-                                                    <h2 className="text-3xl font-bold capitalize text-white mb-3">
+                                                    <h2 className="md:text-3xl text-xl font-bold capitalize text-white mb-3">
                                                         {data.title}
                                                     </h2>
                                                 </Link>
@@ -57,7 +57,7 @@ export default function News() {
                                                 {/* author and date */}
                                                 <div className="pt-2">
                                                     <div className="text-gray-100">
-                                                        <div className="inline-block h-3 border-l-2 border-red-600 mr-2" />
+                                                        <div className="inline-block h-3 border-l-2 border-red-600 mr-2 md:text-base text-xs" />
                                                         {formatDate(
                                                             data.created_at
                                                         )}
@@ -67,25 +67,25 @@ export default function News() {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-2 sm:border-b-0 border-dotted border-gray-100">
-                                        <div className="flex flex-row sm:block hover-img">
+                                    <div className="flex-shrink max-w-full w-full sm:w-1/3 lg:px-3 px-2 lg:pb-3 pb-2 pt-3 sm:pt-0">
+                                        <div className="grid md:grid-cols-1 grid-cols-2 items-center">
                                             <Link href={`/news/${data.slug}`}>
                                                 <img
-                                                    className="max-w-full w-full mx-auto h-[200px] object-cover"
+                                                    className="max-w-full w-full mx-auto lg:h-[200px] h-[150px] object-cover rounded"
                                                     src={data.cover}
                                                     alt="alt title"
                                                 />
                                             </Link>
                                             <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                                                <h3 className="text-lg font-bold leading-tight mb-2">
+                                                <h3 className="lg:text-lg font-bold leading-tight mb-2">
                                                     <Link
                                                         href={`/news/${data.slug}`}
-                                                        className="text-gray-50"
+                                                        className="text-gray-50 lg:text-base text-sm"
                                                     >
                                                         {data.title}
                                                     </Link>
                                                 </h3>
-                                                <p className="hidden md:block text-gray-200 leading-tight mb-1">
+                                                <p className="hidden md:block text-gray-200 leading-tight mb-1 lg:text-base text-sm">
                                                     {strLimit(
                                                         data.description,
                                                         100
@@ -93,7 +93,7 @@ export default function News() {
                                                 </p>
                                                 <Link
                                                     href={`/news/${data.slug}`}
-                                                    className="text-gray-300 italic"
+                                                    className="text-gray-300 italic lg:text-base text-sm"
                                                 >
                                                     <span className="inline-block h-3 border-l-2 border-red-600 mr-2" />
                                                     {formatDate(
@@ -109,7 +109,7 @@ export default function News() {
                     </div>
                     {/* sidebar */}
                     <div className="order-2 relative">
-                        <div className="sticky top-0">
+                        <div className="sticky top-0 grid lg:grid-cols-1 md:grid-cols-2">
                             <MostPopularComponent oldestNews={oldestNews} />
                             <AdvertisementComponent />
                         </div>

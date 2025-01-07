@@ -18,7 +18,7 @@ export default function MostPopularComponent(oldestNews) {
                             } border-slate-700 hover:bg-red-500/40 hover:border-red-600`}
                         >
                             <Link
-                                className="text-lg font-bold px-6 py-3 flex flex-row items-center"
+                                className="md:text-lg md:font-bold font-medium px-6 py-3 flex flex-row items-center"
                                 href={`/news/${news.slug}`}
                             >
                                 {news.title}
