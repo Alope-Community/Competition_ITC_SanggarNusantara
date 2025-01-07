@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 
-import { IconChevronLgDown, IconCirclePersonFill } from "justd-icons";
+import {
+    IconBarsThree,
+    IconChevronLgDown,
+    IconCirclePersonFill,
+} from "justd-icons";
 import formatDate from "../tools/formatDate";
 
 export default function NavbarComponent() {
@@ -33,15 +37,15 @@ export default function NavbarComponent() {
     return (
         <>
             <nav className="fixed z-50 w-full backdrop-blur shadow-sm">
-                <div className="container flex justify-between items-center mx-auto lg:px-0 px-10">
+                <div className="container flex justify-between items-center mx-auto lg:px-0 md:px-10 px-3">
                     <div className="py-5">
                         <Link href="/">
-                            <h5 className="text-2xl text-white">
+                            <h5 className="md:text-2xl text-xl text-white">
                                 Sanggar Nusantara
                             </h5>
                         </Link>
                     </div>
-                    <div className="flex items-center lg:gap-5 gap-3">
+                    <div className="md:flex hidden items-center lg:gap-5 gap-3">
                         <div className="border-b-2 py-5 border-red-500 lg:px-8 px-5 lg:mr-5 mr-3">
                             <ul className="flex gap-6 items-center text-white">
                                 <li>
@@ -166,6 +170,11 @@ export default function NavbarComponent() {
                                 Login
                             </Link>
                         )}
+                    </div>
+                    <div className="md:hidden block">
+                        <button>
+                            <IconBarsThree className="text-white size-5" />
+                        </button>
                     </div>
                 </div>
             </nav>

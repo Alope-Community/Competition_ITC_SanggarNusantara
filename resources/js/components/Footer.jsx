@@ -19,16 +19,16 @@ export default function FooterComponent() {
                 <IconHome1Fill className="size-5" />
             </span>
 
-            <h3 className="text-3xl font-semibold mb-5 mt-2">
+            <h3 className="md:text-3xl text-2xl font-semibold mb-5 mt-2">
                 Sanggar Nusantara
             </h3>
             <ul className="flex justify-center gap-6 items-center text-white mb-5">
-                <li>
+                <li className="">
                     <Link href="/" className={url == "/" ? "font-bold" : ""}>
                         Home
                     </Link>
                 </li>
-                <li>
+                <li className="">
                     <Link
                         href="/news"
                         className={isActive("/news") ? "font-bold" : ""}
@@ -36,7 +36,7 @@ export default function FooterComponent() {
                         Berita
                     </Link>
                 </li>
-                <li>
+                <li className="">
                     <Link
                         href="/events"
                         className={isActive("/events") ? "font-bold" : ""}
@@ -67,7 +67,9 @@ export default function FooterComponent() {
 
             <hr className="w-5/6 border-t border-gray-700 mx-auto mt-5" />
 
-            <p className="mt-7">Copyright &copy; by ALOPE</p>
+            <p className="mt-7 md:text-base text-sm">
+                Copyright &copy; by ALOPE
+            </p>
         </footer>
     );
 }
