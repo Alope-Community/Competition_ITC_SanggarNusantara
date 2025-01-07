@@ -5,8 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NewsResource;
 use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+use App\Mail\NewsNotification;
+use Illuminate\Support\Facades\Mail;
 
 class NewsController extends Controller
 {
@@ -21,33 +25,76 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request)
+    // {
+    //     // Validasi input
+    //     $validated = $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'cover' => 'required',
+    //         'description' => 'required|string',
+    //         'body' => 'required|string',
+    //     ]);
+
+    //     // Buat slug awal dari title
+    //     $slug = Str::slug($validated['title']);
+
+    //     // Tambahkan string acak 3 digit ke slug
+    //     $randomString = Str::random(3); // 3 karakter acak
+    //     $slugWithRandom = $slug . '-' . $randomString;
+
+
+    //     // Tetapkan slug yang unik ke data yang divalidasi
+    //     $validated['slug'] = $slugWithRandom;
+
+    //     // Simpan data berita
+    //     $news = News::create($validated);
+
+    //     // Kembalikan data berita dengan format resource
+    //     return new NewsResource($news);
+    // }
     public function store(Request $request)
     {
-        // Validasi input
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'cover' => 'required',
-            'description' => 'required|string',
-            'body' => 'required|string',
-        ]);
+        try {
+            // Validasi input
+            $validated = $request->validate([
+                'title' => 'required|string|max:255',
+                'cover' => 'required',
+                'description' => 'required|string',
+                'body' => 'required|string',
+            ]);
 
-        // Buat slug awal dari title
-        $slug = Str::slug($validated['title']);
+            // Buat Slug
+            $slug = Str::slug($validated['title']);
+            $randomString = Str::random(3); // 3 karakter acak
+            $slugWithRandom = $slug . '-' . $randomString;
+            $validated['slug'] = $slugWithRandom;
 
-        // Tambahkan string acak 3 digit ke slug
-        $randomString = Str::random(3); // 3 karakter acak
-        $slugWithRandom = $slug . '-' . $randomString;
+            // Simpan data berita
+            $news = News::create($validated);
 
+            // Ambil semua user yang subscribe
+            $users = User::whereNotNull('email_subscribed_at')->get();
 
-        // Tetapkan slug yang unik ke data yang divalidasi
-        $validated['slug'] = $slugWithRandom;
+            foreach ($users as $user) {
+                Mail::to($user->email)->send(new NewsNotification($news));
+            }
 
-        // Simpan data berita
-        $news = News::create($validated);
+            // Kembalikan data berita dengan format resource
+            return new NewsResource($news);
 
-        // Kembalikan data berita dengan format resource
-        return new NewsResource($news);
+        } catch (\Exception $e) {
+            // Log error untuk debugging
+            Log::error("Gagal menyimpan berita: " . $e->getMessage());
+
+            // Berikan respons kesalahan dengan pesan error
+            return response()->json([
+                'error' => 'Terjadi kesalahan saat menyimpan berita.',
+                'details' => $e->getMessage(),
+            ], 500);
+        }
     }
+
+
 
     /**
      * Display the specified resource.
