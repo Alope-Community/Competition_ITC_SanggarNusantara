@@ -1,9 +1,10 @@
+import React from "react";
+
 import {
     IconBrandFacebook,
     IconBrandInstagram,
     IconHome1Fill,
 } from "justd-icons";
-import React from "react";
 
 export default function FooterComponent() {
     return (

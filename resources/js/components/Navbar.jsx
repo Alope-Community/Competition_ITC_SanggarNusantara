@@ -1,27 +1,21 @@
-import { Link, usePage } from "@inertiajs/inertia-react";
-import {
-    IconChevronLgDown,
-    IconChevronLgUp,
-    IconChevronUp,
-    IconCirclePersonFill,
-    IconPeople,
-    IconPeopleFill,
-} from "justd-icons";
 import React, { useState } from "react";
+import { Link, usePage } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 
-export default function NavbarComponent() {
-    const { url } = usePage(); // Dapatkan URL saat ini dari Inertia
+import { IconChevronLgDown, IconCirclePersonFill } from "justd-icons";
 
+export default function NavbarComponent() {
+    const { url } = usePage();
     const { auth } = usePage().props;
 
+    // Dropdown
     const [isDropdownOpen, setDropdownOpen] = useState(false);
-
     const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
 
     // Fungsi untuk menentukan apakah link aktif
     const isActive = (path) => url.startsWith(path);
 
+    // logout
     const handleLogout = () => {
         Inertia.post("/logout");
     };
@@ -67,7 +61,6 @@ export default function NavbarComponent() {
                                     Event
                                 </Link>
                             </li>
-                            {/* <li>Gallery</li> */}
                         </ul>
                     </div>
                     {auth.user ? (

@@ -1,13 +1,18 @@
+import React, { useState, useEffect, useRef } from "react";
+import { Link, usePage } from "@inertiajs/inertia-react";
+
 import {
     IconCalendarFill,
     IconChevronRight,
     IconLocationFill,
     IconPlayFill,
 } from "justd-icons";
-import React, { useState, useEffect, useRef } from "react";
+
+// components
 import NavbarComponent from "../components/Navbar";
 import FooterComponent from "../components/Footer";
-import { Link, usePage } from "@inertiajs/inertia-react";
+
+// tools
 import formatDate from "../tools/formatDate";
 
 function Layout() {
@@ -348,7 +353,10 @@ function Layout() {
                 <section class="lg:grid hidden grid-cols-4 gap-10 container mx-auto mt-10">
                     {news.map((data, index) =>
                         index == 0 ? (
-                            <div className="col-span-4 grid lg:grid-cols-5 gap-10 items-center container mx-auto mt-10">
+                            <div
+                                key={index}
+                                className="col-span-4 grid lg:grid-cols-5 gap-10 items-center container mx-auto mt-10"
+                            >
                                 <div className="h-[350px] w-full rounded-md overflow-hidden lg:col-span-2">
                                     <img
                                         src={data.cover}
@@ -376,20 +384,6 @@ function Layout() {
                                     <p className="text-gray-200 mt-5 md:text-base text-[12px]">
                                         {data.description}
                                     </p>
-                                    {/* <div className="flex gap-5 mt-10 text-gray-300 md:text-base text-sm">
-                                        <span className="flex gap-2 items-center">
-                                            <IconEye />
-                                            <small>2.000 views</small>
-                                        </span>
-                                        <span className="flex gap-2 items-center">
-                                            <IconHeart />
-                                            <small>2.000 suka</small>
-                                        </span>
-                                        <span className="flex gap-2 items-center">
-                                            <IconMessages />
-                                            <small>2.000 komentar</small>
-                                        </span>
-                                    </div> */}
                                     <div className="flex gap-5 mt-10 text-gray-300 md:text-base text-sm">
                                         <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
                                             <IconCalendarFill className="size-5" />
@@ -401,7 +395,7 @@ function Layout() {
                                 </div>
                             </div>
                         ) : (
-                            <div>
+                            <div key={index}>
                                 <img
                                     src={data.cover}
                                     alt={`News Cover ${data.slug}`}
@@ -413,20 +407,6 @@ function Layout() {
                                     </h3>
                                 </Link>
                                 <div class="my-5 flex gap-5">
-                                    {/* <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
-                                        <svg
-                                            stroke="currentColor"
-                                            fill="currentColor"
-                                            stroke-width="0"
-                                            viewBox="0 0 448 512"
-                                            height="1em"
-                                            width="1em"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
-                                        </svg>
-                                        <small>Ilham Hafidz</small>
-                                    </span> */}
                                     <span class="flex gap-2 items-center text-gray-600 dark:text-gray-400">
                                         <IconCalendarFill className="size-5" />
                                         <small>

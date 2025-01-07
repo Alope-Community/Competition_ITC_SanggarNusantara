@@ -1,12 +1,13 @@
-import { usePage } from "@inertiajs/inertia-react";
 import React from "react";
+import { usePage } from "@inertiajs/inertia-react";
+
+// components
 import NavbarComponent from "../components/Navbar";
 import FooterComponent from "../components/Footer";
 
 export default function NewsDetail() {
     const { news } = usePage().props;
 
-    console.log(news);
     return (
         <>
             <NavbarComponent />
