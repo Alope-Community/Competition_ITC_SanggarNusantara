@@ -7,6 +7,7 @@ import {
     IconLocationFill,
     IconPlayFill,
 } from "justd-icons";
+import { ToastContainer, toast } from "react-toastify";
 
 // components
 import NavbarComponent from "../components/Navbar";
@@ -15,7 +16,7 @@ import FooterComponent from "../components/Footer";
 // tools
 import formatDate from "../tools/formatDate";
 
-function Layout() {
+function LandingPage() {
     const images = [
         {
             title: "Sanggar Nusantara",
@@ -63,6 +64,27 @@ function Layout() {
     };
 
     useEffect(() => {
+        // Get the query parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+        const successLogin = params.get("successLogin");
+
+        if (successLogin) {
+            toast.success("Login Berhasil");
+
+            // Set a timeout to remove the successLogin parameter after 3 seconds
+            setTimeout(() => {
+                // Remove the 'successLogin' parameter from the URL
+                params.delete("successLogin");
+
+                // Update the URL without reloading the page
+                window.history.replaceState(
+                    null,
+                    "",
+                    `${window.location.pathname}?${params.toString()}`
+                );
+            }, 3000); // 3000 milliseconds = 3 seconds
+        }
+
         // Mulai interval otomatis saat komponen dimuat
         startInterval();
 
@@ -94,6 +116,7 @@ function Layout() {
     const { news } = usePage().props;
     return (
         <>
+            <ToastContainer theme="dark" />
             <NavbarComponent />
             {/*  */}
             <header
@@ -442,4 +465,4 @@ function Layout() {
     );
 }
 
-export default Layout;
+export default LandingPage;

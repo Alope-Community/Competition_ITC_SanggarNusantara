@@ -21,17 +21,17 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
+    
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return Inertia::location('/');
-            // return redirect()->intended('/')->with('success', 'Berhasil login!');
+            $request->session()->put('success', 'Berhasil login!');
+            return Inertia::location('/?successLogin=true');
         }
-
-        return back()->withErrors([
-            'email' => 'Email atau password salah.',
-        ])->onlyInput('email');
+    
+        $request->session()->put('error', 'Email atau password salah.');
+        return back()->onlyInput('email');
     }
+    
 
     public function register(){
 

@@ -15,12 +15,13 @@ Route::get('/news', [LandingPageController::class, 'news']);
 Route::get('/news/{slug}', [LandingPageController::class, 'news_detail']);
 
 // AUTH
-Route::get('/login', [AuthController::class, 'login'])->name("auth.login");
-Route::post('/login', [AuthController::class, 'authenticated'])->name("auth.authenticated");
-Route::get('/register', [AuthController::class, 'register']);
-Route::post('/register', [AuthController::class, 'registration']);
-Route::post('/logout', [AuthController::class, 'logout']);
-
+Route::middleware(['web'])->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name("auth.login");
+    Route::post('/login', [AuthController::class, 'authenticated'])->name("auth.authenticated");
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'registration']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
 
 // API
 Route::apiResource('api/news', NewsController::class);
