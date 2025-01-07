@@ -15,6 +15,7 @@ import FooterComponent from "../components/Footer";
 
 // tools
 import formatDate from "../tools/formatDate";
+import removeQueryParam from "../tools/removeQueryParam";
 
 function LandingPage() {
     const images = [
@@ -66,24 +67,23 @@ function LandingPage() {
     useEffect(() => {
         // Get the query parameters from the URL
         const params = new URLSearchParams(window.location.search);
-        const successLogin = params.get("successLogin");
 
-        if (successLogin) {
-            toast.success("Login Berhasil");
+        const messages = {
+            successLogin: "Login Berhasil",
+            successSubscribe: "Berlangganan Berhasil",
+            successUnsubscribe: "Berhenti Berlangganan Berhasil",
+        };
 
-            // Set a timeout to remove the successLogin parameter after 3 seconds
-            setTimeout(() => {
-                // Remove the 'successLogin' parameter from the URL
-                params.delete("successLogin");
-
-                // Update the URL without reloading the page
-                window.history.replaceState(
-                    null,
-                    "",
-                    `${window.location.pathname}?${params.toString()}`
-                );
-            }, 1000); // 1000 milliseconds = 1 seconds
-        }
+        // Iterate over the messages and handle accordingly
+        Object.keys(messages).forEach((key) => {
+            const param = params.get(key);
+            if (param) {
+                const toastType =
+                    param === "false" ? toast.error : toast.success;
+                toastType(messages[key]);
+                removeQueryParam(key); // Remove the query param after showing the message
+            }
+        });
 
         // Mulai interval otomatis saat komponen dimuat
         startInterval();

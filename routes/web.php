@@ -4,6 +4,7 @@ use App\Http\Controllers\API\_UploadImageController;
 use App\Http\Controllers\API\NewsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\SubscribeController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/news', [LandingPageController::class, 'news']);
 Route::get('/news/{slug}', [LandingPageController::class, 'news_detail']);
+// 
+Route::post('/subscribe', SubscribeController::class);
 
 // AUTH
 Route::middleware(['web'])->group(function () {
