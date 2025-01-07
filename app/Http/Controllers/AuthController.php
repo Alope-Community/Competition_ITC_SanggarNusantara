@@ -28,8 +28,7 @@ class AuthController extends Controller
             return Inertia::location('/?successLogin=true');
         }
     
-        $request->session()->put('error', 'Email atau password salah.');
-        return back()->onlyInput('email');
+        return Inertia::location('/login?successLogin=false');
     }
     
 
@@ -42,7 +41,7 @@ class AuthController extends Controller
         // Validasi input
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -54,16 +53,11 @@ class AuthController extends Controller
                 'password' => bcrypt($validated['password']),
             ]);
 
-            // Redirect dengan pesan berhasil
-            // return redirect('/login')->with('success', 'Pendaftaran berhasil. Silakan login.');
-            return Inertia::location('/login');
+            return Inertia::location('/login?successRegister=true');
         } catch (\Exception $e) {
-            // Log error untuk debugging
             Log::error("Error saat registrasi: " . $e->getMessage());
 
-            // Redirect dengan pesan error
-            // return redirect()->back()->with('error', 'Terjadi kesalahan saat pendaftaran. Silakan coba lagi.');
-            return Inertia::location('/login');
+            return Inertia::location('/register?successRegister=false');
         }
     }
 
@@ -72,6 +66,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Anda telah logout.');
+        return redirect('/login?successLogout=true');
     }
 }

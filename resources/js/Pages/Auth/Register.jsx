@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "@inertiajs/inertia-react";
 import { router } from "@inertiajs/react";
 
@@ -10,8 +10,11 @@ import {
 } from "justd-icons";
 import { ToastContainer, toast } from "react-toastify";
 
-//
+// components
 import LoaderComponent from "../../components/Loader";
+
+// tools
+import removeQueryParam from "../../tools/removeQueryParam";
 
 export default function Register() {
     const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
@@ -60,6 +63,26 @@ export default function Register() {
 
         reset();
     };
+
+    useEffect(() => {
+        // Get the query parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+
+        const messages = {
+            successRegister: "Registrasi Gagal",
+        };
+
+        // Iterate over the messages and handle accordingly
+        Object.keys(messages).forEach((key) => {
+            const param = params.get(key);
+            if (param) {
+                const toastType =
+                    param === "false" ? toast.error : toast.success;
+                toastType(messages[key]);
+                removeQueryParam(key); // Remove the query param after showing the message
+            }
+        });
+    }, []);
 
     const reset = () => {
         setFormData({

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { router } from "@inertiajs/react";
 import { Link } from "@inertiajs/inertia-react";
 
@@ -7,6 +7,9 @@ import { IconKeyFill, IconMailFill } from "justd-icons";
 
 // ccomponents
 import LoaderComponent from "../../components/Loader";
+
+// tools
+import removeQueryParam from "../../tools/removeQueryParam";
 
 export default function Login() {
     const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
@@ -37,6 +40,28 @@ export default function Login() {
             },
         });
     };
+
+    useEffect(() => {
+        // Get the query parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+
+        const messages = {
+            successLogin: "Login Gagal",
+            successLogout: "Logout Berhasil",
+            successRegister: "Registrasi Berhasil",
+        };
+
+        // Iterate over the messages and handle accordingly
+        Object.keys(messages).forEach((key) => {
+            const param = params.get(key);
+            if (param) {
+                const toastType =
+                    param === "false" ? toast.error : toast.success;
+                toastType(messages[key]);
+                removeQueryParam(key); // Remove the query param after showing the message
+            }
+        });
+    }, []);
 
     const reset = () => {
         setFormData({
