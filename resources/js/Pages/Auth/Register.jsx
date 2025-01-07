@@ -122,7 +122,7 @@ export default function Register() {
                     </div>
                 </div>
                 <div className="flex items-center justify-center flex-col lg:min-h-auto min-h-screen">
-                    <div className="w-3/4">
+                    <div className="md:w-3/4 md:px-0 px-5">
                         <div className="mb-10">
                             <h1 className="text-5xl font-semibold uppercase">
                                 Register{" "}
@@ -254,7 +254,7 @@ export default function Register() {
                         </form>
                     </div>
 
-                    <p className="absolute bottom-10 text-gray-300 italic text-sm">
+                    <p className="absolute bottom-10 text-gray-300 italic text-sm md:block hidden">
                         Copyright &copy; 2024 by ALOPE
                     </p>
                 </div>
