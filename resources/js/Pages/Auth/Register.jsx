@@ -107,8 +107,8 @@ export default function Register() {
     return (
         <>
             <ToastContainer theme="dark" />
-            <div className="grid grid-cols-2 text-gray-50">
-                <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] w-full h-screen bg-cover bg-center relative z-10 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:to-black/10 after:from-black/60 after:-z-10">
+            <div className="grid lg:grid-cols-2 text-gray-50">
+                <div className="bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] w-full h-screen bg-cover bg-center relative z-10 lg:block hidden after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:to-black/10 after:from-black/60 after:-z-10">
                     <div className="border-l-4 border-red-600 py-5 pl-5 w-1/2 absolute bottom-20 left-0">
                         <h3 className="text-3xl font-semibold text-gray-50">
                             Sanggar Nusantara
@@ -121,7 +121,7 @@ export default function Register() {
                         </p>
                     </div>
                 </div>
-                <div className="flex items-center justify-center flex-col">
+                <div className="flex items-center justify-center flex-col lg:min-h-auto min-h-screen">
                     <div className="w-3/4">
                         <div className="mb-10">
                             <h1 className="text-5xl font-semibold uppercase">
