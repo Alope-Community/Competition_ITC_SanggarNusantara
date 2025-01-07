@@ -319,7 +319,7 @@ function LandingPage() {
                                 </a>
                             </div>
                             <div className="lg:col-span-2 lg:text-right relative h-full">
-                                <div className="absolute bottom-10 lg:right-0 left-0">
+                                <div className="absolute bottom-10 lg:right-0 lg:left-auto left-0">
                                     <h5 className="text-3xl font-semibold text-gray-200 inline-flex gap-2 items-center">
                                         <IconGlobe2Fill className="size-7 text-red-500" />
                                         Indonesia di Mata Dunia
@@ -329,7 +329,7 @@ function LandingPage() {
                                             (news, index) => (
                                                 <div
                                                     key={index}
-                                                    className="py-4 cursor-pointer duration-200 lg:border-r-4 border-l-4 border-red-500 hover:border-white lg:pr-4 pr-0 lg:pl-0 pl-4 box-border"
+                                                    className="py-4 cursor-pointer duration-200 lg:border-r-4 lg:border-l-0 border-l-4 border-red-500 hover:border-white lg:pr-4 pr-0 lg:pl-0 pl-4 box-border"
                                                 >
                                                     <Link
                                                         href={`/news/${news.slug}`}
