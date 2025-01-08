@@ -18,8 +18,8 @@ export default function EventPage() {
     return (
         <>
             <NavbarComponent />
-            <main className="text-gray-200 pt-32 container mx-auto grid grid-cols-3 gap-10">
-                <div className="col-span-2">
+            <main className="text-gray-200 pt-32 container mx-auto grid lg:grid-cols-3 gap-10 lg:px-0 md:px-10 px-3">
+                <div className="lg:col-span-2">
                     <div className="text-left">
                         <div className="flex items-center gap-3">
                             <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
@@ -40,7 +40,7 @@ export default function EventPage() {
                     {events.map((event, index) => (
                         <div
                             key={index}
-                            className="grid mb-4 lg:grid-cols-5 gap-5 items-center"
+                            className="grid mb-10 lg:grid-cols-5 gap-5 items-center"
                         >
                             <div className="w-full rounded-md overflow-hidden lg:col-span-2">
                                 <img
