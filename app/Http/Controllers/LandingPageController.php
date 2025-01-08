@@ -47,7 +47,8 @@ class LandingPageController extends Controller
 
         return inertia('Event', [
             'events' => $events,
-            "upcomingEvents" => $upcomingEvents
+            "upcomingEvents" => $upcomingEvents,
+            'googleMapsApiKey' => config('services.google_maps.key'),
         ]);
     }
     public function events_detail(Request $request){

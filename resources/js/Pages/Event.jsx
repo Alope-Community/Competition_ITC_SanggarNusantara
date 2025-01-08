@@ -6,32 +6,45 @@ import {
     IconCalendar2Fill,
     IconCalendarFill,
     IconLocationFill,
+    IconMapFill,
 } from "justd-icons";
 import AdvertisementComponent from "../components/Advertisement";
 import UpcomingEventComponent from "../components/UpcomingEvent";
 import formatDate from "../tools/formatDate";
+import EventMap from "../components/EventMap";
 
 export default function EventPage() {
-    const { events, upcomingEvents } = usePage().props;
+    const { events, upcomingEvents, googleMapsApiKey } = usePage().props;
 
     return (
         <>
             <NavbarComponent />
             <main className="text-gray-200 pt-32 container mx-auto grid lg:grid-cols-3 gap-10 lg:px-0 md:px-10 px-3">
                 <div className="lg:col-span-2">
-                    <div className="text-left">
-                        <div className="flex items-center gap-3">
-                            <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
-                                <IconCalendar2Fill className="text-white" />
-                            </span>
-                            <h3 className="md:text-4xl text-xl font-bold text-gray-200">
-                                Ragam Event
-                            </h3>
+                    <div className="flex items-center justify-between">
+                        <div className="text-left">
+                            <div className="flex items-center gap-3">
+                                <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
+                                    <IconCalendar2Fill className="text-white" />
+                                </span>
+                                <h3 className="md:text-4xl text-xl font-bold text-gray-200">
+                                    Ragam Event
+                                </h3>
+                            </div>
+                            <p className="text-gray-300 md:text-base text-xs mt-2">
+                                Jelajahi cerita dan informasi terkini tentang
+                                kekayaan budaya Indonesia.
+                            </p>
                         </div>
-                        <p className="text-gray-300 md:text-base text-xs mt-2">
-                            Jelajahi cerita dan informasi terkini tentang
-                            kekayaan budaya Indonesia.
-                        </p>
+                        <div>
+                            <Link
+                                href="#interactive-map"
+                                className="flex items-center gap-2 border border-red-500 px-4 py-2 rounded hover:bg-gradient-to-r from-red-500 to-red-600"
+                            >
+                                <IconMapFill />
+                                Peta Interaktif
+                            </Link>
+                        </div>
                     </div>
 
                     <hr className="my-5 border-gray-700" />
@@ -84,6 +97,29 @@ export default function EventPage() {
                         <AdvertisementComponent />
                     </div>
                 </div>
+                <hr className="col-span-3 border-gray-700 my-5" />
+                <section
+                    id="interactive-map"
+                    className="col-span-3 mb-10 scroll-mt-32"
+                >
+                    <div className="text-left mb-3">
+                        <div className="flex items-center gap-3">
+                            <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
+                                <IconMapFill className="text-white" />
+                            </span>
+                            <h3 className="md:text-4xl text-xl font-bold text-gray-200">
+                                Peta Interaktif
+                            </h3>
+                        </div>
+                        <p className="text-gray-300 md:text-base text-xs mt-2">
+                            Jelajahi cerita dan informasi terkini tentang
+                            kekayaan budaya Indonesia.
+                        </p>
+                    </div>
+                    <div className="border border-red-500/70 rounded">
+                        <EventMap apiKey={googleMapsApiKey} />
+                    </div>
+                </section>
             </main>
             <FooterComponent />
         </>

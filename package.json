@@ -20,6 +20,7 @@
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/react": "^2.0.0",
+        "@react-google-maps/api": "^2.20.5",
         "justd-icons": "^1.10.10",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
