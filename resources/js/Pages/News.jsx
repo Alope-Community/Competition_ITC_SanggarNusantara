@@ -83,7 +83,7 @@ export default function News() {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="flex-shrink max-w-full w-full sm:w-1/3 lg:px-3 px-2 lg:pb-3 pb-2 pt-3 sm:pt-0">
+                                    <div className="flex-shrink max-w-full w-full sm:w-1/3 hover:bg-gray-900/30 rounded p-3 mb-4">
                                         <div className="grid md:grid-cols-1 grid-cols-2 items-center">
                                             <Link href={`/news/${data.slug}`}>
                                                 <img

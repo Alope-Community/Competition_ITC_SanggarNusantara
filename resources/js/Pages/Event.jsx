@@ -7,7 +7,6 @@ import {
     IconCalendarFill,
     IconLocationFill,
 } from "justd-icons";
-import MostPopularComponent from "../components/MostPopularNews";
 import AdvertisementComponent from "../components/Advertisement";
 import UpcomingEventComponent from "../components/UpcomingEvent";
 import formatDate from "../tools/formatDate";
@@ -40,7 +39,7 @@ export default function EventPage() {
                     {events.map((event, index) => (
                         <div
                             key={index}
-                            className="grid mb-10 lg:grid-cols-5 gap-5 items-center"
+                            className="grid mb-10 lg:grid-cols-5 gap-5 items-center hover:bg-gray-900/30 rounded py-3 px-4"
                         >
                             <div className="w-full rounded-md overflow-hidden lg:col-span-2">
                                 <img
