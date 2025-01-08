@@ -1,7 +1,7 @@
-import { Link } from "@inertiajs/inertia-react";
 import React from "react";
+import { Link } from "@inertiajs/inertia-react";
 
-export default function MostPopularComponent(oldestNews) {
+export default function MostPopularNewsComponent(oldestNews) {
     return (
         <div className="w-full text-gray-100">
             <div className="mb-6">
@@ -13,6 +13,7 @@ export default function MostPopularComponent(oldestNews) {
                 <ul className="post-number">
                     {oldestNews.oldestNews.map((news, index) => (
                         <li
+                            key={index}
                             className={`${
                                 index < 4 ? "border-b" : ""
                             } border-slate-700 hover:bg-red-500/40 hover:border-red-600`}

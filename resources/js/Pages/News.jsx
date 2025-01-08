@@ -4,15 +4,16 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 // components
 import NavbarComponent from "../components/Navbar";
 import FooterComponent from "../components/Footer";
-import MostPopularComponent from "../components/MostPopular";
+import MostPopularNewsComponent from "../components/MostPopularNews";
 import AdvertisementComponent from "../components/Advertisement";
 
 // tools
 import formatDate from "../tools/formatDate";
 import strLimit from "../tools/strLimit";
+import { IconCalendar2Fill } from "justd-icons";
 
 export default function News() {
-    const { news, oldestNews } = usePage().props;
+    const { events, oldestNews } = usePage().props;
 
     return (
         <>
@@ -22,6 +23,21 @@ export default function News() {
                 <div className="container mx-auto grid lg:grid-cols-3 gap-10 lg:px-0 md:px-8 px-2">
                     {/* post */}
                     <div className="overflow-hidden order-1 lg:col-span-2">
+                        <div className="text-left">
+                            <div className="flex items-center gap-3">
+                                <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
+                                    <IconCalendar2Fill className="text-white" />
+                                </span>
+                                <h3 className="md:text-4xl text-xl font-bold text-gray-200">
+                                    Ragam Berita
+                                </h3>
+                            </div>
+                            <p className="text-gray-300 md:text-base text-xs mt-2">
+                                Jelajahi cerita dan informasi terkini tentang
+                                kekayaan budaya Indonesia.
+                            </p>
+                        </div>
+                        <hr className="my-5 border-gray-700" />
                         <div className="flex flex-row flex-wrap">
                             {news.map((data, index) =>
                                 index == 0 ? (
@@ -110,7 +126,7 @@ export default function News() {
                     {/* sidebar */}
                     <div className="order-2 relative">
                         <div className="sticky top-0 grid lg:grid-cols-1 md:grid-cols-2">
-                            <MostPopularComponent oldestNews={oldestNews} />
+                            <MostPopularNewsComponent oldestNews={oldestNews} />
                             <AdvertisementComponent />
                         </div>
                     </div>

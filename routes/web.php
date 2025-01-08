@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/news', [LandingPageController::class, 'news']);
 Route::get('/news/{slug}', [LandingPageController::class, 'news_detail']);
+Route::get('/events', [LandingPageController::class, 'events']);
+Route::get('/events/{slug}', [LandingPageController::class, 'events_detail']);
 // 
 Route::post('/subscribe', SubscribeController::class);
 
