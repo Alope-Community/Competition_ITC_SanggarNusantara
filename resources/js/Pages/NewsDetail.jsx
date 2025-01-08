@@ -6,7 +6,7 @@ import { IconArrowLeftFill } from "justd-icons";
 // components
 import NavbarComponent from "../components/Navbar";
 import FooterComponent from "../components/Footer";
-import MostPopularComponent from "../components/MostPopular";
+import MostPopularNewsComponent from "../components/MostPopularNews";
 import AdvertisementComponent from "../components/Advertisement";
 
 export default function NewsDetail() {
@@ -37,13 +37,14 @@ export default function NewsDetail() {
                         <p>{news.description}</p>
                     </div>
                     <div
+                        id="tiptap"
                         className="md:text-base text-sm"
                         dangerouslySetInnerHTML={{ __html: news.body }}
                     />
                 </div>
                 <div className="relative">
                     <div className="sticky top-0 grid lg:grid-cols-1 md:grid-cols-2">
-                        <MostPopularComponent oldestNews={oldestNews} />
+                        <MostPopularNewsComponent oldestNews={oldestNews} />
                         <AdvertisementComponent />
                     </div>
                 </div>

@@ -13,7 +13,7 @@ import strLimit from "../tools/strLimit";
 import { IconCalendar2Fill } from "justd-icons";
 
 export default function News() {
-    const { events, oldestNews } = usePage().props;
+    const { news, oldestNews } = usePage().props;
 
     return (
         <>
