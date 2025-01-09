@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\{_UploadImageController, DashboardController, NewsController};
+use App\Http\Controllers\API\{_UploadImageController, DashboardController, NewsController, EventController};
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
@@ -32,4 +32,5 @@ Route::middleware(['web'])->group(function () {
 Route::get('api/dashboard', DashboardController::class);
 
 Route::apiResource('api/news', NewsController::class);
+Route::apiResource('api/events', EventController::class);
 Route::post('api/upload-image', _UploadImageController::class);
