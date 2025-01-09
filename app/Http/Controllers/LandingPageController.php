@@ -52,12 +52,12 @@ class LandingPageController extends Controller
         ]);
     }
     public function events_detail(Request $request){
-        $news= News::whereSlug($request->slug)->first();
-        $oldestNews= News::limit(5)->get();
+        $event= Event::whereSlug($request->slug)->first();
+        $upcomingEvents= Event::limit(5)->get();
 
-        return inertia('NewsDetail', [
-            'news' => $news,
-            "oldestNews" => $oldestNews
+        return inertia('EventDetail', [
+            'event' => $event,
+            "upcomingEvents" => $upcomingEvents
         ]);
     }
 }

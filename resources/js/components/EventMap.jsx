@@ -17,66 +17,20 @@ const center = {
     lng: 113.9213,
 };
 
-const dataMarker = [
-    {
-        title: "Tari Saman",
-        from: "Nanggoroe Aceh Darussalam",
-        image: "tariSaman.jpg",
-        type: "tarian",
-        longlat: {
-            lat: parseFloat("4.571568"),
-            lng: parseFloat("96.357198"),
-        },
-    },
-    {
-        title: "Tari Tor-tor",
-        from: "Sumatra Utara",
-        image: "tariTorTor.jpg",
-        type: "tarian",
-        longlat: {
-            lat: parseFloat("2.5960115"),
-            lng: parseFloat("98.7263639"),
-        },
-    },
-    {
-        title: "Tari Erai-erai",
-        from: "Sumatra Selatan",
-        image: "tariEraiErai.jpg",
-        type: "tarian",
-        longlat: {
-            lat: parseFloat("-3.1328995"),
-            lng: parseFloat("104.0944384"),
-        },
-    },
-    {
-        title: "Tari Tempurung",
-        from: "Sumatra Barat",
-        image: "tariTempurung.jpg",
-        type: "tarian",
-        longlat: {
-            lat: parseFloat("-0.8301458"),
-            lng: parseFloat("100.5752503"),
-        },
-    },
-    {
-        title: "Tari Andun",
-        from: "Bengkulu",
-        image: "tariAndun.jpg",
-        type: "tarian",
-        longlat: {
-            lat: parseFloat("-3.8251707"),
-            lng: parseFloat("102.2221773"),
-        },
-    },
-];
-
-function Map({ apiKey }) {
-    console.log(apiKey);
-
+function Map({ apiKey, events }) {
     const { isLoaded } = useJsApiLoader({
         id: "google-map-script",
         googleMapsApiKey: apiKey,
     });
+
+    const dataMarker = events.map((item) => ({
+        title: item.title,
+        image: item.banner.split("/").pop(), // Mengambil nama file dari URL banner
+        longlat: {
+            lat: parseFloat(item.latitude || 0), // Parsing latitude, gunakan default 0 jika kosong
+            lng: parseFloat(item.longitude || 0), // Parsing longitude, gunakan default 0 jika kosong
+        },
+    }));
 
     const [selectedMarker, setSelectedMarker] = useState({
         title: "",

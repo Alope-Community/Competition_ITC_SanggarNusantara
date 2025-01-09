@@ -62,7 +62,7 @@ export default function EventPage() {
                                 />
                             </div>
                             <div className="lg:col-span-3">
-                                <Link href={`/`}>
+                                <Link href={`/events/${event.slug}`}>
                                     <span>
                                         <h2 className="font-bold md:text-3xl text-gray-50 text-xl">
                                             {event.title}
@@ -117,7 +117,7 @@ export default function EventPage() {
                         </p>
                     </div>
                     <div className="border border-red-500/70 rounded">
-                        <EventMap apiKey={googleMapsApiKey} />
+                        <EventMap apiKey={googleMapsApiKey} events={events} />
                     </div>
                 </section>
             </main>
