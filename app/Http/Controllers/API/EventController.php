@@ -46,9 +46,14 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $event = Event::whereSlug($slug)->first();
+        return response()->json([
+            "data" => $event,
+            "message" => "Get data Event success",
+            "status_code" => "WN-01"
+        ]);
     }
 
     /**
@@ -62,9 +67,24 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug)
     {
-        //
+        $event = Event::whereSlug($slug)->first();
+        $event->update([
+            "title" => $request->title,
+            "description" => $request->description,
+            "banner" => $request->banner,
+            "started" => $request->startedDate . " " . $request->startedTime,
+            "ended" => $request->endedDate . " " . $request->endedTime,
+            "fee" => $request->fee,
+            "location" => $request->location,
+            "for" => $request->for,
+        ]);
+
+        return response()->json([
+            "message" => "Update data Event success",
+            "status_code" => "WN-01"
+        ]);
     }
 
     /**
