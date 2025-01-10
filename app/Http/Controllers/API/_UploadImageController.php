@@ -33,6 +33,23 @@ class _UploadImageController extends Controller
                 ], 201);
             }
             
+            // Ini untuk banner
+            if($request->hasFile('banner')) {
+                $bannerPath = null;
+                if ($request->hasFile('banner')) {
+                    $bannerPath = $request->file('banner')->store('banners', 'public');
+                }
+
+                return response()->json([
+                    "code" => "SNR-001",
+                    'success' => true,
+                    'data' => [
+                        "banner" => $bannerPath,
+                    ],
+                    'message' => 'Success Upload Image'
+                ], 201);
+            }
+            
         } catch (Exception $e) {
             Log::error('Transaction update failed: ' . $e->getMessage());
 

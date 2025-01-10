@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\EventResource;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Support\Str;
 
 class EventController extends Controller
 {
@@ -18,19 +19,28 @@ class EventController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        Event::create([
+            "title" => $request->title,
+            "slug" => Str::slug($request->title),
+            "description" => $request->description,
+            "banner" => $request->banner,
+            "started" => $request->startedDate . " " . $request->startedTime,
+            "ended" => $request->endedDate . " " . $request->endedTime,
+            "fee" => $request->fee,
+            "location" => $request->location,
+            "for" => $request->for,
+            "latitude" => $request->lat,
+            "longitude" => $request->lng,
+        ]);
+
+        return response()->json([
+            "message" => "Insert data Event success",
+            "status_code" => "WN-01"
+        ]);
     }
 
     /**
@@ -60,8 +70,16 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $slug)
     {
-        //
+        $event = Event::whereSlug($slug)->first();
+
+        if (!$event) {
+            return response()->json(['message' => 'Event not found'], 404);
+        }
+
+        $event->delete();
+
+        return response()->json(['message' => 'Event deleted successfully'], 200);
     }
 }
