@@ -9,6 +9,8 @@ import {
     IconCalendar2Fill,
     IconMapFill,
     IconMoneybagFill,
+    IconPeopleFill,
+    IconTicketFill,
 } from "justd-icons";
 import FooterComponent from "../components/Footer";
 import formatDate from "../tools/formatDate";
@@ -40,22 +42,46 @@ export default function EventDetailPage() {
                     {/* <div className="border-l-2 border-red-500 pl-3 py-5 mt-5 mb-10 md:text-base text-sm">
                         <p>{event.description}</p>
                     </div> */}
-                    <ul className="mt-10 pl-5 border-l-2 border-red-500 py-4">
-                        <li className="flex items-center gap-2 mb-2">
-                            <IconCalendar2Fill />
-                            <p>{`${formatDate(event.started)} - ${formatDate(
-                                event.ended
-                            )}`}</p>
-                        </li>
-                        <li className="flex items-center gap-2 mb-2">
-                            <IconMoneybagFill />
-                            <p>{event.fee}</p>
-                        </li>
-                        <li className="flex items-center gap-2 mb-2">
-                            <IconMapFill />
-                            <p>{event.location}</p>
-                        </li>
-                    </ul>
+                    <div className="flex items-center justify-between ">
+                        <ul className="mt-10 pl-5 border-l-2 border-red-500 py-4">
+                            <li className="flex items-center gap-2 mb-2">
+                                <IconCalendar2Fill />
+                                <p>{`${formatDate(
+                                    event.started
+                                )} - ${formatDate(event.ended)}`}</p>
+                            </li>
+                            <li className="flex items-center gap-2 mb-2">
+                                <IconMoneybagFill />
+                                <p>
+                                    {event.fee
+                                        ? event.fee.toLocaleString("id-ID", {
+                                              style: "currency",
+                                              currency: "IDR",
+                                              minimumFractionDigits: 0,
+                                          })
+                                        : "Gratis"}
+                                </p>
+                            </li>
+                            {event.mazimum_visitor ? (
+                                <li className="flex items-center gap-2 mb-2">
+                                    <IconPeopleFill />
+                                    <p>{event.maximum_visitor}</p>
+                                </li>
+                            ) : (
+                                ""
+                            )}
+                            <li className="flex items-center gap-2 mb-2">
+                                <IconMapFill />
+                                <p>{event.location}</p>
+                            </li>
+                        </ul>
+                        <div>
+                            <button className="bg-gradient-to-r from-red-500 to-red-600 hover:bg-gradient-to-l px-3 py-2 rounded flex items-center gap-2">
+                                <IconTicketFill />
+                                Daftar Event
+                            </button>
+                        </div>
+                    </div>
                     <p className="mt-5 text-gray-300">{event.description}</p>
                 </div>
                 <div className="relative">

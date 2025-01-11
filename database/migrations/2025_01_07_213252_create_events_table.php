@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime("started");
             $table->dateTime("ended");
             $table->integer("fee");
+            $table->integer("maximum_visitor")->default(0);
             $table->string("location");
             $table->string("longitude");
             $table->string("latitude");
