@@ -7,6 +7,9 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\SubscribeController;
 use Illuminate\Support\Facades\Route;
 
+use App\Providers\MidtransService;
+use Illuminate\Http\Request;
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -34,3 +37,23 @@ Route::get('api/dashboard', DashboardController::class);
 Route::apiResource('api/news', NewsController::class);
 Route::apiResource('api/events', EventController::class);
 Route::post('api/upload-image', _UploadImageController::class);
+
+// 
+Route::get('/checkout', function () {
+    return inertia('Checkout');
+});
+Route::post('api/midtrans/token', function (Request $request, MidtransService $midtransService) {
+    $order = [
+        'transaction_details' => [
+            'order_id' => uniqid(),
+            'gross_amount' => $request->amount,
+        ],
+        'customer_details' => [
+            'first_name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ],
+    ];
+
+    return $midtransService->createTransaction($order);
+});

@@ -1,5 +1,5 @@
 import { Link, usePage } from "@inertiajs/inertia-react";
-import React from "react";
+import React, { useState } from "react";
 import NavbarComponent from "../components/Navbar";
 import MostPopularNewsComponent from "../components/MostPopularNews";
 import AdvertisementComponent from "../components/Advertisement";
@@ -17,6 +17,11 @@ import formatDate from "../tools/formatDate";
 
 export default function EventDetailPage() {
     const { event, upcomingEvents } = usePage().props;
+
+    const [formData, setFormData] = useState({
+        name: "",
+        event_id: 0,
+    });
 
     return (
         <>
@@ -83,6 +88,15 @@ export default function EventDetailPage() {
                         </div>
                     </div>
                     <p className="mt-5 text-gray-300">{event.description}</p>
+
+                    <div className="mt-10">
+                        <form action="">
+                            <div>
+                                <label htmlFor="">Nama:</label>
+                                <input type="text" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div className="relative">
                     <div className="sticky top-0 grid lg:grid-cols-1 md:grid-cols-2">
