@@ -1,7 +1,6 @@
 import { Link, usePage } from "@inertiajs/inertia-react";
 import React, { useEffect, useState } from "react";
 import NavbarComponent from "../components/Navbar";
-import MostPopularNewsComponent from "../components/MostPopularNews";
 import AdvertisementComponent from "../components/Advertisement";
 import UpcomingEventComponent from "../components/UpcomingEvent";
 import {
@@ -23,7 +22,7 @@ export default function EventDetailPage() {
 
     const [formData, setFormData] = useState({
         name: "",
-        user_id: auth.user.id ? auth.user.id : 0,
+        user_id: auth.user ? auth.user.id : 0,
         event_id: event.id ? event.id : 0,
         purhaced_ticket: 1,
     });
@@ -45,7 +44,7 @@ export default function EventDetailPage() {
 
         setFormData({
             name: "",
-            user_id: auth.user.id ? auth.user.id : 0,
+            user_id: auth.user ? auth.user.id : 0,
             event_id: event.id ? event.id : 0,
             purhaced_ticket: 1,
         });

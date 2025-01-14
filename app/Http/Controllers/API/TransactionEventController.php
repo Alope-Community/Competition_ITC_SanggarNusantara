@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\{Event, TransactionEvent, User};
 use App\Providers\MidtransService;
 use Illuminate\Support\Str;
+use App\Http\Resources\TransactionEventResource;
+use App\Mail\ETicket;
+use Illuminate\Support\Facades\Mail;
 
 class TransactionEventController extends Controller
 {
@@ -15,7 +18,7 @@ class TransactionEventController extends Controller
      */
     public function index()
     {
-        //
+        return TransactionEventResource::collection(TransactionEvent::with("event")->with("user")->latest()->get());
     }
 
     /**
@@ -71,27 +74,24 @@ class TransactionEventController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $invoice)
     {
-        //
+        $transactionEvent = TransactionEvent::whereInvoice($invoice)->first();
+
+        $transactionEvent->update([
+            "status" => $request->status
+        ]);
+
+        // Ambil user yang beli tiket
+        $user = User::whereId($transactionEvent->user_id)->first();
+
+        if($request->status == "success"){
+            Mail::to($user->email)->send(new ETicket($transactionEvent));
+        }
+
+        return response()->json($transactionEvent);
     }
 
     /**

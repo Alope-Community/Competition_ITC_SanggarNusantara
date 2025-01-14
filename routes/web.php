@@ -43,4 +43,6 @@ Route::get('/checkout', function () {
     return inertia('Checkout');
 });
 
+Route::get('/api/transaction-events', [TransactionEventController::class, "index"]);
 Route::post('api/midtrans/token', [TransactionEventController::class, "store"]);
+Route::patch('/api/transaction-events/{invoice}', [TransactionEventController::class, "update"]);
