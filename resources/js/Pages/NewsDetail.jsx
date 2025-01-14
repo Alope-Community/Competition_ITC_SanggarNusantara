@@ -29,7 +29,7 @@ export default function NewsDetail() {
                         {news.title}
                     </h1>
                     <img
-                        src={`https://alope.site/storage/news/${news.banner}`}
+                        src={`https://alope.site/storage/news/${news.cover}`}
                         alt="news cover"
                         className="w-full md:min-h-[400px] md:max-h-[500px] min-h-[300px] max-h-[400px] object-cover"
                     />

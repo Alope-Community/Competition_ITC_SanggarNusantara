@@ -58,7 +58,7 @@ export default function EventPage() {
                                 <img
                                     src={`https://alope.site/storage/${event.banner}`}
                                     alt={`Event Cover`}
-                                    className="object-cover h-full w-full"
+                                    className="object-cover w-full min-h-[200px] max-h-[300px]"
                                 />
                             </div>
                             <div className="lg:col-span-3">

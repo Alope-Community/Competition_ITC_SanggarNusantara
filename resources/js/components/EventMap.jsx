@@ -167,7 +167,8 @@ function Map({ apiKey, events }) {
                                 console.log(marker);
                             }}
                             icon={{
-                                url: `https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/10/free-images.jpg`,
+                                // url: `https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w600/2023/10/free-images.jpg`,
+                                url: `https://alope.site/storage/banners/${marker.image}`,
                                 scaledSize: new window.google.maps.Size(40, 40),
                                 origin: new window.google.maps.Point(0, 0),
                                 anchor: new window.google.maps.Point(20, 20),
@@ -189,10 +190,10 @@ function Map({ apiKey, events }) {
                         >
                             <div className="bg-white rounded text-center">
                                 <img
-                                    src={`./images/mapMarker/${selectedMarker.image}`}
-                                    width={200}
-                                    height={200}
-                                    className="object-cover"
+                                    src={`https://alope.site/storage/banners/${selectedMarker.image}`}
+                                    width={100}
+                                    height={100}
+                                    className="object-cover w-[300px] h-[200px]"
                                 />
                                 <h1 className="font-bold text-xl text-gray-800 mt-3">
                                     {selectedMarker.title}
@@ -200,22 +201,6 @@ function Map({ apiKey, events }) {
                                 <small className="text-gray-600">
                                     {selectedMarker.from}
                                 </small>
-                                <br />
-                                {/* {selectedMarker.type == "makanan" ? (
-                                    <Link
-                                        to={"/ragam-indonesia/makanan/detail"}
-                                        className="bg-orange-500 inline-block text-white hover:bg-orange-400 rounded px-8 py-2 mt-5"
-                                    >
-                                        Baca Selengkapnya
-                                    </Link>
-                                ) : (
-                                    <Link
-                                        to={"/ragam-indonesia/tarian/detail"}
-                                        className="bg-purple-500 inline-block text-white hover:bg-purple-400 rounded px-8 py-2 mt-5"
-                                    >
-                                        Baca Selengkapnya
-                                    </Link>
-                                )} */}
                             </div>
                         </InfoWindow>
                     ) : (
