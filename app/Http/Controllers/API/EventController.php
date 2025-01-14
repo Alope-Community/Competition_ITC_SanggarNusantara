@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\EventResource;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\User;
+use App\Mail\EventNotification;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class EventController extends Controller
@@ -23,7 +26,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        Event::create([
+        $event= Event::create([
             "title" => $request->title,
             "slug" => Str::slug($request->title),
             "description" => $request->description,
@@ -35,7 +38,15 @@ class EventController extends Controller
             "for" => $request->for,
             "latitude" => $request->lat,
             "longitude" => $request->lng,
+            "maximum_visitor" => $request->maximumVisitor,
         ]);
+
+        // Ambil semua user yang subscribe
+        $users = User::whereNotNull('email_subscribed_at')->get();
+
+        foreach ($users as $user) {
+            Mail::to($user->email)->send(new EventNotification($event));
+        }
 
         return response()->json([
             "message" => "Insert data Event success",
@@ -79,6 +90,7 @@ class EventController extends Controller
             "fee" => $request->fee,
             "location" => $request->location,
             "for" => $request->for,
+            "maximum_visitor" => $request->maximumVisitor,
         ]);
 
         return response()->json([

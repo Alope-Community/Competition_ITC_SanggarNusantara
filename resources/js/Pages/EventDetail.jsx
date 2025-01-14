@@ -54,6 +54,8 @@ export default function EventDetailPage() {
         window.snap.pay(data.token);
     };
 
+    console.log(event);
+
     return (
         <>
             <NavbarComponent />
@@ -146,10 +148,10 @@ export default function EventDetailPage() {
                                 Beli Tiket
                             </h3>
                             <form action="" onSubmit={handleBuyTicket}>
-                                <div className="flex gap-3">
+                                <div className="flex md:flex-row flex-col gap-3 w-full">
                                     <input
                                         type="text"
-                                        className="px-3 py-2 rounded bg-gray-200 text-gray-900"
+                                        className="px-3 py-2 rounded bg-gray-200 text-gray-900 w-full"
                                         onChange={(e) => {
                                             setFormData({
                                                 ...formData,
@@ -171,13 +173,13 @@ export default function EventDetailPage() {
                                         value={formData.user_id}
                                         hidden
                                     />
-                                    <div className="flex flex-col w-1/3">
+                                    <div className="flex flex-col md:w-1/3 w-full">
                                         <label htmlFor="" className="mb-2">
                                             Nama Pemesan:
                                         </label>
                                         <input
                                             type="text"
-                                            className="px-3 py-2 rounded bg-gray-200 text-gray-900"
+                                            className="px-3 py-2 rounded bg-gray-200 text-gray-900 md:w-auto w-full"
                                             onChange={(e) => {
                                                 setFormData({
                                                     ...formData,
@@ -187,13 +189,13 @@ export default function EventDetailPage() {
                                             value={formData.name}
                                         />
                                     </div>
-                                    <div className="flex flex-col w-1/3">
+                                    <div className="flex flex-col md:w-1/3 w-full">
                                         <label htmlFor="" className="mb-2">
                                             Total Tiket:
                                         </label>
                                         <input
                                             type="number"
-                                            className="px-3 py-2 rounded bg-gray-200 text-gray-900"
+                                            className="px-3 py-2 rounded bg-gray-200 text-gray-900 md:w-auto w-full"
                                             onChange={(e) => {
                                                 setFormData({
                                                     ...formData,

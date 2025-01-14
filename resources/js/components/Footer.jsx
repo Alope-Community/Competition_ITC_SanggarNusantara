@@ -64,7 +64,7 @@ export default function FooterComponent() {
             <hr className="w-5/6 border-t border-gray-700 mx-auto mt-5" />
 
             <p className="mt-7 md:text-base text-sm">
-                Copyright &copy; by ALOPE
+                Copyright &copy; by ALOPE - Sanggar Nusantara
             </p>
         </footer>
     );

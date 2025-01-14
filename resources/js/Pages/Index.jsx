@@ -387,7 +387,7 @@ function LandingPage() {
                             >
                                 <div className="h-[350px] w-full rounded-md overflow-hidden lg:col-span-2">
                                     <img
-                                        src={data.cover}
+                                        src={`https://alope.site/storage/news/${data.cover}`}
                                         alt={`News Cover ${data.slug}`}
                                         className="object-cover h-full w-full"
                                         data-aos-once="true"
@@ -425,7 +425,7 @@ function LandingPage() {
                         ) : (
                             <div key={index}>
                                 <img
-                                    src={data.cover}
+                                    src={`https://alope.site/storage/news/${data.cover}`}
                                     alt={`News Cover ${data.slug}`}
                                     class="h-[250px] object-cover w-full rounded"
                                 />
@@ -477,7 +477,7 @@ function LandingPage() {
                                 <img
                                     src={`https://alope.site/storage/${event.banner}`}
                                     alt={`Event Cover ${event.slug}`}
-                                    className="object-cover h-full w-full"
+                                    className="object-cover h-full w-full min-h-[250px] max-h-[250px]"
                                 />
                             </div>
                             <div className="lg:col-span-3">
