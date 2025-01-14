@@ -7,6 +7,7 @@
     @vite('resources/js/app.jsx')
     @vite('resources/css/app.css')
     @inertiaHead
+    <title>Sanggar Nusantara</title>
   </head>
   <body class="bg-black">
 

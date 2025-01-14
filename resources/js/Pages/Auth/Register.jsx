@@ -124,13 +124,13 @@ export default function Register() {
                 <div className="flex items-center justify-center flex-col lg:min-h-auto min-h-screen">
                     <div className="md:w-3/4 md:px-0 px-5">
                         <div className="mb-10">
-                            <h1 className="text-5xl font-semibold uppercase">
+                            <h1 className="text-3xl md:text-5xl font-semibold uppercase">
                                 Register{" "}
                                 <span className="text-8xl text-red-500 -ml-3">
                                     .
                                 </span>
                             </h1>
-                            <p className="mt-1 text-sm text-gray-300 w-3/4">
+                            <p className="mt-1 text-xs md:text-sm text-gray-300 w-3/4">
                                 Bergabunglah bersama Mari lestarikan dan
                                 memajukan warisan kita untuk generasi mendatang.
                             </p>
@@ -231,7 +231,7 @@ export default function Register() {
                                 >
                                     Register
                                 </button>
-                                <p className="mt-4">
+                                <p className="mt-4 md;text-base text-sm">
                                     Sudah punya akun?{" "}
                                     <Link
                                         href="/login"
