@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User, News};
+use App\Models\{User, News, Event, TransactionEvent};
 
 class DashboardController extends Controller
 {
@@ -15,10 +15,14 @@ class DashboardController extends Controller
     {
         $userCount = User::count();
         $newsCount = News::count();
+        $eventCount = Event::count();
+        $transactionCount = TransactionEvent::count();
 
         return response()->json([
             'userCount' => $userCount,
-            'newsCount' => $newsCount
+            'newsCount' => $newsCount,
+            'eventCount' => $eventCount,
+            'transactionCount' => $transactionCount
         ], 200);
 
     }
