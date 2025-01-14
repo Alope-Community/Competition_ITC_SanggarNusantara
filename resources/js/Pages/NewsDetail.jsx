@@ -16,7 +16,7 @@ export default function NewsDetail() {
         <>
             <NavbarComponent />
 
-            <main className="grid lg:grid-cols-3 container mx-auto pt-36 gap-10 lg:px-0 md:px-10 px-2">
+            <main className="grid lg:grid-cols-3 container mx-auto pt-36 gap-10 xl:px-0 md:px-10 px-2">
                 <div className="lg:col-span-2 text-gray-50">
                     <Link
                         href="/news"

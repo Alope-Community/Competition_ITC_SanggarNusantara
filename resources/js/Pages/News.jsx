@@ -20,7 +20,7 @@ export default function News() {
             <NavbarComponent />
 
             <main className="pt-36">
-                <div className="container mx-auto grid lg:grid-cols-3 gap-10 lg:px-0 md:px-8 px-2">
+                <div className="container mx-auto grid lg:grid-cols-3 gap-10 xl:px-0 md:px-8 px-2">
                     {/* post */}
                     <div className="overflow-hidden order-1 lg:col-span-2">
                         <div className="text-left">

@@ -41,7 +41,7 @@ export default function NavbarComponent() {
     return (
         <>
             <nav className="fixed z-50 w-full backdrop-blur shadow-sm">
-                <div className="container flex justify-between items-center mx-auto lg:px-0 md:px-10 px-3">
+                <div className="container flex justify-between items-center mx-auto xl:px-0 md:px-10 px-3">
                     <div className="py-5">
                         <Link href="/">
                             <h5 className="md:text-2xl text-xl text-white">
@@ -309,7 +309,7 @@ export default function NavbarComponent() {
 
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-black rounded-lg shadow-lg w-96 p-5 shadow-gray-900">
+                    <div className="bg-black rounded-lg shadow-lg md:w-96 w-10/12 p-5 shadow-gray-900">
                         <h2 className="text-lg font-semibold text-gray-200">
                             {auth.user.email_subscribed_at
                                 ? "Konfirmasi Berhenti Berlangganan"

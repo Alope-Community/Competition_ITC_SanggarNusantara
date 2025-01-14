@@ -132,7 +132,7 @@ function LandingPage() {
                     backgroundImage: `url(${images[currentImage].image})`,
                 }}
             >
-                <div className="container mx-auto h-full flex flex-col justify-center relative lg:px-0 px-10">
+                <div className="container mx-auto h-full flex flex-col justify-center relative xl:px-0 md:px-10 px-0">
                     <h1 className="font-medium text-4xl md:text-6xl lg:text-8xl text-white md:text-left text-center">
                         Sanggar <br />{" "}
                         <span className="text-5xl md:text-7xl lg:text-9xl font-bold text-red-500 ">
@@ -140,7 +140,7 @@ function LandingPage() {
                         </span>
                     </h1>
 
-                    <div className="absolute lg:left-0 md:left-10 left-0 bottom-14 flex lg:flex-row flex-col lg:items-end items-start justify-between">
+                    <div className="absolute lg:left-0 md:left-10 left-0 bottom-14 flex lg:flex-row flex-col lg:items-end items-start justify-between xl:px-0 sm:px-10 md:px-5 px-0">
                         <div className="lg:w-1/2 w-5/6 md:mx-0 mx-auto">
                             <p className="text-white md:text-base text-xs md:text-left text-center">
                                 {images[currentImage].description}
@@ -183,7 +183,7 @@ function LandingPage() {
             </header>
 
             <main className="text-gray-100 py-20">
-                <section className="text-center mt-28 container mx-auto lg:px-0 md:px-10 px-3">
+                <section className="text-center mt-28 container mx-auto xl:px-0 md:px-10 px-3">
                     <div>
                         <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
                             <IconArchive2Fill className="text-white" />
@@ -294,7 +294,7 @@ function LandingPage() {
                 </section>
                 {/*  */}
                 <section className="mt-36 bg-[url(https://images.unsplash.com/photo-1720518816836-e351848c5357?q=80&w=2085&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover relative bg-center h-screen z-10 after:content-[''] after:absolute after:inset-0 after:bg-gradient-to-t after:from-black/80 after:to-black/40 after:-z-10">
-                    <div className="container mx-auto h-full flex items-center lg:px-0 md:px-10 px-3">
+                    <div className="container mx-auto h-full flex items-center xl:px-0 md:px-10 px-3">
                         <div className="grid lg:grid-cols-3 items-center h-full">
                             <div>
                                 <h3 className="md:text-5xl text-2xl font-semibold">
@@ -378,7 +378,7 @@ function LandingPage() {
 
                 <hr className="w-2/3 mx-auto border-gray-700 my-5" />
 
-                <section class="grid lg:grid-cols-4 md:grid-cols-2 lg:gap-10 md:gap-7 gap-10 container mx-auto mt-4 lg:px-0 md:px-10 px-3">
+                <section class="grid lg:grid-cols-4 md:grid-cols-2 xl:gap-10 md:gap-7 sm:gap-4 gap-10 container mx-auto mt-4 xl:px-0 md:px-10 px-3">
                     {news.map((data, index) =>
                         index == 0 ? (
                             <div
@@ -467,7 +467,7 @@ function LandingPage() {
 
                 <hr className="w-2/3 mx-auto border-gray-700 my-5" />
 
-                <section class="grid md:grid-cols-2 lg:gap-10 md:gap-7 gap-10 container mx-auto mt-4 lg:px-0 md:px-10 px-3">
+                <section class="grid md:grid-cols-2 lg:gap-10 md:gap-7 gap-10 container mx-auto mt-4 xl:px-0 md:px-10 px-3">
                     {events.map((event, index) => (
                         <div
                             key={index}
@@ -483,7 +483,7 @@ function LandingPage() {
                             <div className="lg:col-span-3">
                                 <Link href={`/news/${event.slug}`}>
                                     <span>
-                                        <h2 className="font-bold md:text-3xl text-gray-50 text-xl">
+                                        <h2 className="font-bold xl:text-3xl md:text-2xl text-gray-50 text-xl">
                                             {event.title}
                                         </h2>
                                     </span>

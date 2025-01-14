@@ -59,7 +59,7 @@ export default function EventDetailPage() {
             <NavbarComponent />
             <ToastContainer theme="dark" />
 
-            <main className="grid lg:grid-cols-3 container mx-auto pt-36 gap-10 lg:px-0 md:px-10 px-2">
+            <main className="grid lg:grid-cols-3 container mx-auto pt-36 gap-10 xl:px-0 md:px-10 px-2">
                 <div className="lg:col-span-2 text-gray-50">
                     <Link
                         href="/events"
@@ -79,7 +79,7 @@ export default function EventDetailPage() {
                     {/* <div className="border-l-2 border-red-500 pl-3 py-5 mt-5 mb-10 md:text-base text-sm">
                         <p>{event.description}</p>
                     </div> */}
-                    <div className="flex items-center justify-between ">
+                    <div className="flex md:flex-row flex-col md:items-center justify-between gap-10">
                         <ul className="mt-10 pl-5 border-l-2 border-red-500 py-4">
                             <li className="flex items-center gap-2 mb-2">
                                 <IconCalendar2Fill />

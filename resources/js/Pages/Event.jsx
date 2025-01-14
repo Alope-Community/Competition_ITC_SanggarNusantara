@@ -19,9 +19,9 @@ export default function EventPage() {
     return (
         <>
             <NavbarComponent />
-            <main className="text-gray-200 pt-32 container mx-auto grid lg:grid-cols-3 gap-10 lg:px-0 md:px-10 px-3">
+            <main className="text-gray-200 pt-32 container mx-auto grid lg:grid-cols-3 gap-10 xl:px-0 md:px-10 px-3">
                 <div className="lg:col-span-2">
-                    <div className="flex items-center justify-between">
+                    <div className="flex md:flex-row flex-col md:items-center items-start justify-between gap-10">
                         <div className="text-left">
                             <div className="flex items-center gap-3">
                                 <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-bl from-red-500 to-red-600 size-10">
@@ -39,7 +39,7 @@ export default function EventPage() {
                         <div>
                             <Link
                                 href="#interactive-map"
-                                className="flex items-center gap-2 border border-red-500 px-4 py-2 rounded hover:bg-gradient-to-r from-red-500 to-red-600"
+                                className="flex items-center gap-2 border border-red-500 md:px-4 md:py-2 px-3 py-2 md:text-base text-sm whitespace-nowrap rounded hover:bg-gradient-to-r from-red-500 to-red-600"
                             >
                                 <IconMapFill />
                                 Peta Interaktif
@@ -97,10 +97,10 @@ export default function EventPage() {
                         <AdvertisementComponent />
                     </div>
                 </div>
-                <hr className="col-span-3 border-gray-700 my-5" />
+                <hr className="lg:col-span-3 border-gray-700 my-5" />
                 <section
                     id="interactive-map"
-                    className="col-span-3 mb-10 scroll-mt-32"
+                    className="lg:col-span-3 mb-10 scroll-mt-32"
                 >
                     <div className="text-left mb-3">
                         <div className="flex items-center gap-3">
