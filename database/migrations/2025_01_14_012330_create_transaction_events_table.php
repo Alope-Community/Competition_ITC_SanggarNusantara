@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('transaction_events', function (Blueprint $table) {
             $table->id();
             $table->string("invoice");
+            $table->string("orderer_name");
+            $table->integer("purhaced_ticket");
+            $table->integer("total_pay");
             $table->foreignId("user_id")->constrained('users')->onDelete('cascade');
             $table->foreignId("event_id")->constrained('events')->onDelete('cascade');
             $table->timestamps();
