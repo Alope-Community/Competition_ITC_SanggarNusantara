@@ -56,8 +56,8 @@ export default function EventPage() {
                         >
                             <div className="w-full rounded-md overflow-hidden lg:col-span-2">
                                 <img
-                                    src={event.banner}
-                                    alt={`News Cover`}
+                                    src={`https://alope.site/storage/${event.banner}`}
+                                    alt={`Event Cover`}
                                     className="object-cover h-full w-full"
                                 />
                             </div>

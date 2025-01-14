@@ -72,7 +72,7 @@ export default function EventDetailPage() {
                         {event.title}
                     </h1>
                     <img
-                        src={event.banner}
+                        src={`https://alope.site/storage/${event.banner}`}
                         alt="event banner"
                         className="w-full md:min-h-[400px] md:max-h-[500px] min-h-[300px] max-h-[400px] object-cover"
                     />
@@ -99,7 +99,7 @@ export default function EventDetailPage() {
                                         : "Gratis"}
                                 </p>
                             </li>
-                            {event.mazimum_visitor ? (
+                            {event.maximum_visitor ? (
                                 <li className="flex items-center gap-2 mb-2">
                                     <IconPeopleFill />
                                     <p>{event.maximum_visitor}</p>
@@ -116,12 +116,12 @@ export default function EventDetailPage() {
                             {auth.user ? (
                                 <Link
                                     href="#buy-ticket"
-                                    className="bg-gradient-to-r from-red-500 to-red-600 hover:bg-gradient-to-l px-3 py-2 rounded flex items-center gap-2"
+                                    className="bg-gradient-to-r from-red-500 to-red-600 hover:bg-gradient-to-l px-3 py-2 rounded items-center gap-2 hidden"
                                 >
                                     <IconTicketFill />
                                     Beli Tiket
                                 </Link>
-                            ) : (
+                            ) : event.maximum_visitor ? (
                                 <Link
                                     href="/login"
                                     className="bg-gradient-to-r from-red-500 to-red-600 hover:bg-gradient-to-l px-3 py-2 rounded flex items-center gap-2"
@@ -129,6 +129,8 @@ export default function EventDetailPage() {
                                     <IconTicket />
                                     Login untuk Beli Tiket
                                 </Link>
+                            ) : (
+                                ""
                             )}
                         </div>
                     </div>
@@ -204,7 +206,8 @@ export default function EventDetailPage() {
                                     </div>
                                     <div className="flex flex-col items-start justify-end">
                                         <button className="bg-gradient-to-r from-red-500 to-red-600 hover:bg-gradient-to-l px-3 py-2 rounded flex items-center gap-2">
-                                            Bayar
+                                            <IconTicketFill />
+                                            Beli Tiket
                                         </button>
                                     </div>
                                 </div>

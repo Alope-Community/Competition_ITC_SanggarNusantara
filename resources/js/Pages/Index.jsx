@@ -475,13 +475,13 @@ function LandingPage() {
                         >
                             <div className="w-full rounded-md overflow-hidden lg:col-span-2">
                                 <img
-                                    src={event.banner}
-                                    alt={`News Cover ${event.slug}`}
+                                    src={`https://alope.site/storage/${event.banner}`}
+                                    alt={`Event Cover ${event.slug}`}
                                     className="object-cover h-full w-full"
                                 />
                             </div>
                             <div className="lg:col-span-3">
-                                <Link href={`/news/${event.slug}`}>
+                                <Link href={`/events/${event.slug}`}>
                                     <span>
                                         <h2 className="font-bold xl:text-3xl md:text-2xl text-gray-50 text-xl">
                                             {event.title}

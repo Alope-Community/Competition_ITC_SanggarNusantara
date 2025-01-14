@@ -7,10 +7,11 @@ import FooterComponent from "../components/Footer";
 import MostPopularNewsComponent from "../components/MostPopularNews";
 import AdvertisementComponent from "../components/Advertisement";
 
+import { IconCalendar2Fill } from "justd-icons";
+
 // tools
 import formatDate from "../tools/formatDate";
 import strLimit from "../tools/strLimit";
-import { IconCalendar2Fill } from "justd-icons";
 
 export default function News() {
     const { news, oldestNews } = usePage().props;
@@ -50,7 +51,7 @@ export default function News() {
                                             >
                                                 <img
                                                     className="max-w-full w-full mx-auto lg:h-[600px] h-[400px] object-cover"
-                                                    src={data.cover}
+                                                    src={`https://alope.site/storage/news/${news.banner}`}
                                                     alt="Image description"
                                                 />
                                             </Link>
@@ -88,7 +89,7 @@ export default function News() {
                                             <Link href={`/news/${data.slug}`}>
                                                 <img
                                                     className="max-w-full w-full mx-auto lg:h-[200px] h-[150px] object-cover rounded"
-                                                    src={data.cover}
+                                                    src={`https://alope.site/storage/news/${news.banner}`}
                                                     alt="alt title"
                                                 />
                                             </Link>
